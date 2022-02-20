@@ -1,19 +1,9 @@
 module.exports = {
-  corePlugins: {
-    container: false,
-  },
-  darkMode: false,
-  mode: 'jit',
-  plugins: [
-    require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/typography'),
-  ],
-  purge: {
-    content: [
-      './templates/**/*.twig',
-    ],
-  },
+  content: ["./templates/**/*.{html,twig}"],
   theme: {
+    container: {
+      center: true,
+    },
     extend: {
       minHeight: {
         'screenh' : '100vh'
@@ -24,5 +14,9 @@ module.exports = {
       serif: ['Merriweather', 'serif'],
     }
   },
-  variants: {}
-};
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+  ],
+}

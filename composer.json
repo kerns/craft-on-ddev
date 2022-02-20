@@ -1,33 +1,25 @@
 {
-  "name": "craftcms/craft",
-  "description": "Craft CMS",
-  "keywords": [
-    "craft",
-    "cms",
-    "craftcms",
-    "project"
+  "name":"kerns/craft-on-ddev",
+  "description":"Craft Starter on DDEV",
+  "type":"project",
+  "license":"MIT",
+  "authors":[
+     {
+        "name":"David Kerns",
+        "email":"david@kerns.dk"
+     }
   ],
-  "license": "0BSD",
-  "homepage": "https://craftcms.com/",
-  "type": "project",
-  "support": {
-    "email": "support@craftcms.com",
-    "issues": "https://github.com/craftcms/cms/issues",
-    "forum": "https://craftcms.stackexchange.com/",
-    "source": "https://github.com/craftcms/cms",
-    "docs": "https://craftcms.com/docs",
-    "rss": "https://craftcms.com/changelog.rss"
-  },
-  "scripts": {
-    "post-create-project-cmd": [
-      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-      "@php -r \"unlink('.gitignore');\"",
-      "@php -r \"rename('.gitignore.default', '.gitignore');\"",
-      "@php -r \"unlink('composer.json');\"",
-      "@php -r \"rename('composer.json.default', 'composer.json');\"",
-      "@php -r \"@unlink('CHANGELOG.md');\"",
-      "@php -r \"@unlink('LICENSE.md');\"",
-      "@php -r \"@unlink('README.md');\""
-    ]
+  "minimum-stability":"dev",
+  "scripts":{
+     "post-create-project-cmd":[
+        "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+        "@php -r \"unlink('.gitignore');\"",
+        "@php -r \"rename('.gitignore.default', '.gitignore');\"",
+        "@php -r \"unlink('composer.json');\"",
+        "@php -r \"rename('composer.json.default', 'composer.json');\"",
+        "@php -r \"@unlink('CHANGELOG.md');\"",
+        "@php -r \"@unlink('LICENSE.md');\"",
+        "@php -r \"@unlink('README.md');\""
+     ]
   }
 }
