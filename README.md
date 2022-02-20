@@ -176,9 +176,9 @@ A Makefile has been included to provide a unified CLI for common development com
 - Thin out the plugins
 - Add some more commands
 - Default typography
-- Basic User Management
+- User Management
 
 
 ## Acknowledgements & Credits
 
-Please read [1DR's credits](https://github.com/onedarnleyroad/craftcms#acknowledgements--credits) ...I've not changed or improved a single atom of this yet.
+Please read [1DR's credits](https://github.com/onedarnleyroad/craftcms#acknowledgements--credits)
