@@ -1,15 +1,10 @@
-## About onedarnleyroad/craftcms
+## Craft on DDEV
 
-A Craft CMS starter project using DDEV for local hosting and Vite for front-end bundling and HMR.
+Forked from 1DR's [Craft CMS Starter](https://github.com/onedarnleyroad/craftcms#acknowledgements--credits)
 
-> https://user-images.githubusercontent.com/134110/132591782-0bcc9465-eb62-46e0-9337-6154bf45fe97.mp4
-> 
-> ☝️ A 1-min video demo, going from zero to Vite HMR on a fresh Craft install, with only 3 CLI commands:  
-> 1. `composer create-project...`
-> 2. `make install`
-> 3. `make dev`
+Uses DDEV for local hosting and Vite for front-end bundling and HMR/Live Reload.
 
-## Notable Features:
+## Features:
 
 - [DDEV](https://ddev.readthedocs.io/) for local development
 - [Vite](https://vitejs.dev/) for front-end bundling & HMR
@@ -35,7 +30,7 @@ you can use `create-project` to pull the latest tagged release.
 Open terminal prompt, and run:
 
 ```shell
-composer create-project onedarnleyroad/craftcms PATH --no-install
+composer create-project kerns/ddev-craft PATH --no-install
 ```
 
 Make sure that `PATH` is a **new** or **existing and empty** folder.
@@ -45,7 +40,7 @@ Make sure that `PATH` is a **new** or **existing and empty** folder.
 Alternatively you can clone the repo via the Git CLI:
 
 ```shell
-git clone git@github.com:onedarnleyroad/craftcms.git PATH
+git clone git@github.com:kerns/ddev-craft.git PATH
 ```
 
 Make sure that `PATH` is a **new** _or_ **existing and empty** folder.
@@ -175,11 +170,15 @@ A Makefile has been included to provide a unified CLI for common development com
 1. [AlpineJS](https://alpinejs.dev/)
 1. [Lazysizes](https://afarkas.github.io/lazysizes/)
 
-## Roadmap
 
-- Continue to improve docs
-- Bugfixes, new features
+## Roadmap
+- Tailwind 3
+- Thin out the plugins
+- Add some more commands
+- Default typography
+- Basic User Management
+
 
 ## Acknowledgements & Credits
 
-Aside from the obvious gratitude owed to the entire team at [Pixel & Tonic](https://pixelandtonic.com/) for their tireless work on Craft, a special thanks goes out to Andrew Welch of [nystudio107](https://nystudio107.com/). Not only has he developed some of the most widely used plugins in the Craft ecosystem, he has dedicated countless time and energy to pushing all of us in the community to excel at everything we do. He has an uncanny ability to see through the fog of development war to know what's best - not just for us, but for our future selves, our clients, and the users of the sites we build. His contributions have made all of our sites perform better in SEO, run faster in the browser, and made our development workflow more streamlined and efficient. Hats off to you, sir. 
+Please read [1DR's credits](https://github.com/onedarnleyroad/craftcms#acknowledgements--credits) ...I've not changed or improved a single atom of this yet.
