@@ -3,7 +3,7 @@
 build: up
 	ddev exec npm run build
 dev: build
-	ddev exec npm run serve
+	ddev exec npm run watch
 composer: up
 	ddev composer \
 		$(filter-out $@,$(MAKECMDGOALS))

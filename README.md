@@ -138,7 +138,7 @@ A Makefile has been included to provide a unified CLI for common development com
 
 - `make install` - Runs a complete one-time process to set the project up and install Craft.
 - `make up` - Starts the DDEV project, ensuring that SSH keys have been added, and npm & Composer have been installed.
-- `make dev` - Runs a one-time build of all front-end assets, then starts Vite's server for HMR.
+- `make dev` - Runs a one-time build of all front-end assets, then starts Vite's server for HMR and live reloading.
 - `make build` - Builds all front-end assets.
 - `make composer xxx` - Run Composer commands inside the container, e.g. `make composer install`
 - `make craft xxx` - Run Craft commands inside the container, e.g. `make craft project-config/touch`
