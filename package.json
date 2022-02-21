@@ -22,6 +22,6 @@
   },
   "scripts": {
     "build": "NODE_ENV=production vite build",
-    "watch": "NODE_ENV=dev vite"
+    "serve": "NODE_ENV=dev vite"
   }
 }
