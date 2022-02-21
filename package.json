@@ -1,6 +1,6 @@
 {
   "author": "David Kerns <david@kerns.dk>",
-  "version": "v0.2",
+  "version": "0.1.0",
   "dependencies": {
     "alpinejs": "^3.4",
     "lazysizes": "^5.3"
@@ -22,6 +22,6 @@
   },
   "scripts": {
     "build": "NODE_ENV=production vite build",
-    "watch": "NODE_ENV=dev vite"
+    "serve": "NODE_ENV=dev vite"
   }
 }
