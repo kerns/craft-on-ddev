@@ -30,7 +30,7 @@ you can use `create-project` to pull the latest tagged release.
 Open terminal prompt, and run:
 
 ```shell
-composer create-project kerns/ddev-craft PATH --no-install
+composer create-project kerns/craft-on-ddev PATH --no-install
 ```
 
 Make sure that `PATH` is a **new** or **existing and empty** folder.
