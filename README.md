@@ -1,10 +1,10 @@
 # Craft on DDEV
 
-A Dockerized local development for Craft CMS pre-configured with Vite and built on DDEV.
+Dockerized local development for Craft CMS, pre-configured with Vite and built on DDEV.
 
 ## Features:
 
-- [DDEV](https://ddev.com/get-started/) for local development with Docker that just works
+- [DDEV](https://ddev.com/get-started/) for local development in a Docker setup that just works
 - [Vite](https://vitejs.dev/) for HMR + live reloading for development, asset optimization + bundling for production
 - [Tailwind 3.x](https://tailwindcss.com) for utility-first CSS
 - [Alpine](https://alpinejs.dev/) for lightweight reactivity
@@ -121,6 +121,7 @@ A Makefile has been included to provide a unified CLI for common development com
 - ~~Tailwind 3~~
 - ~~Thin out the plugins~~
 - ~~Bump php and mariadb~~
+- Mention some useful DDEV commands
 - Improve default typography
 - Add some basic user management
 
