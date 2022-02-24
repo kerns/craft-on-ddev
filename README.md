@@ -109,7 +109,7 @@ A Makefile has been included to provide a unified CLI for common development com
 1. [Aspect Ratio](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
 1. [Line Clamp](https://github.com/tailwindlabs/tailwindcss-line-clamp)
 1. [Typography](https://github.com/tailwindlabs/tailwindcss-typography)
-1. [Forms](https://github.com/tailwindlabs/tailwindcss-typography) (* Beta)
+1. [Forms](https://github.com/tailwindlabs/tailwindcss-forms) (* Beta)
 
 ## Javascript Libraries
 
