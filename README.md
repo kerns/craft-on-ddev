@@ -6,78 +6,37 @@ Uses DDEV for local hosting and Vite for front-end bundling and HMR/Live Reload.
 
 ## Features:
 
-- [DDEV](https://ddev.readthedocs.io/) for local development
-- [Vite](https://vitejs.dev/) for front-end bundling & HMR
-- [Tailwind](https://tailwindcss.com), with [JIT](https://tailwindcss.com/docs/just-in-time-mode) enabled, for utility-first CSS
+- [DDEV](https://ddev.com/get-started/) for local development with Docker that doesn't feel insane
+- [Vite](https://vitejs.dev/) for HMR / Live reloading and bundling for production
+- [Tailwind 3.x](https://tailwindcss.com) for utility-first CSS
 - [Alpine](https://alpinejs.dev/) for lightweight reactivity
 - [DeployHQ](https://www.deployhq.com/) for automated deployment
 - [Postmark](https://postmarkapp.com/) for email delivery
 - [Makefile](https://www.gnu.org/software/make/manual/make.html) for common CLI commands
 
-## Local machine prerequisites:
+## Requirements:
 
 1. [Docker](https://www.docker.com/)
-2. [DDEV](https://ddev.readthedocs.io/)
-3. Optional but recommended, [Composer](https://getcomposer.org/)
+2. [DDEV](https://ddev.com/)
+3. [Composer](https://getcomposer.org/)
 
 ## Getting Started
 
-### Option 1: With Composer (recommended)
+Assuming you have [Composer](https://getcomposer.org/) installed on your local machine,
+you can use the `create-project` command to setup a new development site.
 
-If you have [Composer](https://getcomposer.org/) installed on your local machine,
-you can use `create-project` to pull the latest tagged release.
-
-Open terminal prompt, and run:
+If you don't have composer, [get composer](https://getcomposer.org/). Mac users running Homebrew can simply run `brew install composer`. With that behind you, open a terminal prompt and run:
 
 ```shell
-composer create-project kerns/craft-on-ddev PATH --no-install
+composer create-project kerns/craft-on-ddev <YOUR PATH HERE> --no-install
 ```
 
-Make sure that `PATH` is a **new** or **existing and empty** folder.
+Make sure that `<YOUR PATH HERE>` is the location of a **new** or **existing and empty** folder.
+ 
 
-### Option 2: With Git CLI
+## Configuring DDEV (Optional)
 
-Alternatively you can clone the repo via the Git CLI:
-
-```shell
-git clone git@github.com:kerns/craft-on-ddev.git PATH
-```
-
-Make sure that `PATH` is a **new** _or_ **existing and empty** folder.
-
-Next, you'll want to discard the existing `/.git` directory. In the terminal, run:
-
-```shell
-cd PATH
-rm -rf .git
-```
-
-Last, clean up and set some default files for use:
-
-```shell
-cp .env.example .env
-mv -f composer.json.default composer.json
-mv -f .gitignore.default .gitignore
-rm CHANGELOG.md && rm LICENSE.md && rm README.md
-```
-
-### Option 3: Manual Download
-
-Download a copy of the repo to your local machine and move to where you want to your project to run. Similar to above, you'll then want to clean up and set some default files for use. In the terminal, run:
-
-```shell
-cd PATH
-cp .env.example .env
-mv -f composer.json.default composer.json
-mv -f .gitignore.default .gitignore
-rm CHANGELOG.md && rm LICENSE.md && rm README.md
-```
-
-## Configuring DDEV
-
-_Note: This section is optional. If you are simply test-driving this project, feel free to skip to the next section. ⚡_
-
-To configure your project to operate on a domain other than `https://craftcms.ddev.site`, run:
+You can skip this step if you're happy using the default domain, `https://craftcms.ddev.site`. But don't be happy with the default domain. If you're serious about this project dream up a better test domain and specify it by running:
 
 ```shell
 ddev config
@@ -85,37 +44,35 @@ ddev config
 
 Follow the prompts.
 
-- **Project name:** e.g. `mysite` would result in a project URL of `https://mysite.ddev.site` (make note of this for later in the installation process)
-- **Docroot location:** defaults to `web`, keep as-is
-- **Project Type:** defaults to `php`, keep as-is
+- **Project name:** e.g. `boss-website` would result in a project URL of `https://boss-website.ddev.site` (make note of this for later when you're setting up Craft)
+- **Docroot location:** defaults to `web` and should be kept as-is
+- **Project Type:** defaults to `php` and should be kept as-is
 
 ## Installing Craft
 
-To install a clean version of Craft, run:
+Finally, to install a clean version of Craft, run the following command and follow the prompts.
 
 ```shell
 make install
 ```
 
-Follow the prompts.
+This will do all the heavy lifting of spinning up and configuring a sane, Dockerized development environment tuned with a new version of Craft.
 
-This command will:
+Part of that tuning involved installing a raft of different plugins as defined in `composer.json.default`. You can edit/expand this list however you like, just remember to mirror those decisions in your `Makefile`.
 
-1. Copy your local SSH keys into the container (handy if you are setting up [craft-scripts](https://github.com/nystudio107/craft-scripts/))
-2. Start your DDEV project
-3. Install Composer
-4. Install npm
-5. Do a one-time build of Vite
-6. Generate `APP_ID` and save to your `.env` file
-7. Generate `SECURITY_KEY` and save to your `.env` file
-8. Installing Craft for the first time, allowing you to set the admin's account credentials
-9. Install all Craft plugins
+Pay special attention to the Craft installation prompts. After setting the admin's account credentials, you'll be prompted for your desired site name and url.
+
+`<image>`
+
+Note that the url defaults to `https://craftcms.ddev.site`, making the assumption that you did not run `ddev config` to specify a custom name for your project. Remember to update this with the full and correct url if you did ran `ddev config` and specified a custom name. (for ex. `https://boss-website.ddev.site`).
+
+(💡: If you forgot the name open another terminal window in the same directory and run `ddev describe`.)
 
 Once the process is complete, type `ddev launch` to open the project in your default browser. 🚀
 
-## Local development with Vite
+## Local Development with Vite
 
-To begin development with Vite's dev server & HMR, run:
+To begin development with Vite's dev server & HMR run:
 
 ```shell
 make dev
@@ -123,14 +80,17 @@ make dev
 
 This command will:
 
-1. Copy your local SSH keys into the container (handy if you are setting up [craft-scripts](https://github.com/nystudio107/craft-scripts/))
-2. Start your DDEV project
-3. Install Composer
-4. Install npm
-5. Do a one-time build of Vite
-6. Spin up the Vite dev server
+1. Copy your local SSH keys into the container (handy if you are setting up [craft-scripts](https://github.com/nystudio107/craft-scripts/) or just want to shell into your project's container with `ddev ssh` )
+2. (Re)Start your DDEV project (a series of networked Docker containers)
+3. (Re)Install Composer and npm, together with their dependencies
+4. Do a one-time build of Vite, and start your Vite dev server
 
-Open up a browser to your project domain to verify that Vite is connected. Begin crafting beautiful things. ❤️
+Edit code in `src/` or `templates/` to confirm that changes are being pushed to your browser. (💡: `ddev launch` opens a browser pointed to the domain of your Craft project. It works from any location your project's root directory.)
+
+Subsequently, you can save some time just running `ddev exec npm run serve` to initiate your Vite dev server, but after a `git pull` or other big changes to the codebase you'll want to re-run `make dev`.
+
+Similarly, to build assets for use in production, stop your Vite server and run `ddev exec npm run build`. But run `make build` periodically or after pulling down major changes.
+
 
 ## Makefile
 
@@ -147,23 +107,15 @@ A Makefile has been included to provide a unified CLI for common development com
 
 ## Craft CMS Plugins
 
-1. [Agnostic Fetch](https://plugins.craftcms.com/agnostic-fetch)
-2. [Async Queue](https://plugins.craftcms.com/async-queue)
-3. [CP Field Inspect](https://plugins.craftcms.com/cp-field-inspect)
-4. [Craft Autocomplete](https://github.com/nystudio107/craft-autocomplete)
-5. [Imager-X](https://imager-x.spacecat.ninja/)
-6. [Knock Knock](https://plugins.craftcms.com/knock-knock)
-7. [Postmark](https://plugins.craftcms.com/postmark)
-8. [Redactor](https://plugins.craftcms.com/redactor)
-9. [Seomatic](https://nystudio107.com/docs/seomatic/)
-10. [Typed Link Field](https://plugins.craftcms.com/typedlinkfield)
-11. [Vite](https://github.com/nystudio107/craft-vite)
+[Vite](https://github.com/nystudio107/craft-vite) and [Postmark](https://plugins.craftcms.com/postmark) are the only two plugins installed by default. You can expand this list in `composer.json.default`, but if you do not remember to mirror those changes in your `Makefile`, you will need to install them in Craft manually after logging in.
+
 
 ## Tailwind Plugins
 
 1. [Aspect Ratio](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
 1. [Line Clamp](https://github.com/tailwindlabs/tailwindcss-line-clamp)
 1. [Typography](https://github.com/tailwindlabs/tailwindcss-typography)
+1. [Forms](https://github.com/tailwindlabs/tailwindcss-typography) (* Beta)
 
 ## Javascript Libraries
 
@@ -175,8 +127,8 @@ A Makefile has been included to provide a unified CLI for common development com
 - Tailwind 3
 - Thin out the plugins
 - Add some more commands
-- Default typography
-- User Management
+- Improve default typography
+- Add some basic user management
 
 
 ## Acknowledgements & Credits
