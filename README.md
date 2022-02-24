@@ -33,7 +33,7 @@ Make sure that `<YOUR PATH HERE>` is the location of a **new** or **existing and
 
 ## Configuring DDEV (Optional)
 
-You could skip this step if you're happy using the default domain, `https://craftcms.ddev.site`. But cool kids don't settle for default domains. Demonstrate your commitment to this project by specifying a custom domain. Do so by running:
+You could skip this step if you're happy settling for the default domain, `https://craftcms.ddev.site`. But cool kidz don't settle for default domains. Demonstrate your commitment to this project by specifying a custom domain. Do so by running:
 
 ```shell
 ddev config
@@ -41,7 +41,7 @@ ddev config
 
 Follow the prompts.
 
-- **Project name:** e.g. `cool-kids-website` would result in a project URL of `https://cool-kids-website.ddev.site` (make note of this for later when you're setting up Craft)
+- **Project name:** e.g. `my-website` would result in a project URL of `https://my-website.ddev.site` (make note of this for later when you're setting up Craft)
 - **Docroot location:** defaults to `web` and should be kept as-is
 - **Project Type:** defaults to `php` and should be kept as-is
 
@@ -57,7 +57,7 @@ This does the heavy lifting of spinning up and configuring a sane, Dockerized de
 
 Pay special attention to the Craft installation prompts. After setting the admin's account credentials, you'll be prompted for your desired site name and url.
 
-Note that the url defaults to `https://craftcms.ddev.site`, making the assumption that you are not cool and did not run `ddev config` to specify a custom name for your project. Remember to update this with the full url if you ran `ddev config` to specify a custom domain. (for ex. `https://cool-kids-website.ddev.site` 😎).
+Note that the url defaults to `https://craftcms.ddev.site`, making the assumption that you are not cool and did not run `ddev config` to specify a custom name for your project. Just remember to update this with the full url if you ran `ddev config` to specify a custom domain. 😎 (for ex. `https://my-website.ddev.site`).
 
 (💡 If you forgot to note the url open another terminal window in the same directory and run `ddev describe`)
 
