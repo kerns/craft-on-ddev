@@ -1,11 +1,11 @@
-## Craft on DDEV
+# Craft on DDEV
 
-A DDEV installation tuned for local development with Craft CMS – pre-configured with Vite for HMR, live reloading and asset bundling.
+A Dockerized local development for Craft CMS pre-configured with Vite and built on DDEV.
 
 ## Features:
 
-- [DDEV](https://ddev.com/get-started/) Configuration – for time-saving, sanity-preserving local development with Docker
-- [Vite](https://vitejs.dev/) for HMR, live reloading and front-end bundling
+- [DDEV](https://ddev.com/get-started/) for local development with Docker that just works
+- [Vite](https://vitejs.dev/) for HMR + live reloading for development, asset optimization + bundling for production
 - [Tailwind 3.x](https://tailwindcss.com) for utility-first CSS
 - [Alpine](https://alpinejs.dev/) for lightweight reactivity
 - [DeployHQ](https://www.deployhq.com/) for automated deployment
@@ -53,9 +53,7 @@ Finally, to install a clean version of Craft, run the following command and foll
 make install
 ```
 
-This does the heavy lifting of spinning up and configuring a sane, Dockerized development environment with a new and pre-tuned installation of Craft CMS.
-
-Part of that tuning involves the installation of plugins for Craft as defined in `composer.json.default`. You can edit/expand this list however you like, just remember to mirror those choices in your `Makefile`.
+This does the heavy lifting of spinning up and configuring a sane, Dockerized development environment with a new and pre-tuned installation of Craft CMS. Part of that tuning involves the installation of plugins for Craft as defined in `composer.json.default`. You can edit/expand this list however you like, just remember to mirror those choices in your `Makefile`.
 
 Pay special attention to the Craft installation prompts. After setting the admin's account credentials, you'll be prompted for your desired site name and url.
 
@@ -78,14 +76,14 @@ This command will:
 1. Copy your local SSH keys into the right container (handy if you are setting up [craft-scripts](https://github.com/nystudio107/craft-scripts/) or just want to shell into your project's container later with `ddev ssh` )
 2. (Re)Start your DDEV project (a series of networked Docker containers)
 3. (Re)Install the container's versions of Composer and npm, together with their dependencies
-4. Instruct Vite to perform a one-time build for production (output in /web/dist)
+4. Instruct Vite to perform a one-time build for production (output in `/web/dist`)
 5. Finally, start a Vite dev server for HMR and live reloading
 
 Edit code in `src/` or `templates/` to confirm that changes are being pushed to your browser. (💡 `ddev launch` opens a browser pointed to the domain of your Craft project. It works from any location below your project's root directory.)
 
 Subsequently, you can save some time just running `ddev exec npm run serve` to initiate your Vite dev server, but after a `git pull` or other big changes to the codebase you'll want to re-run `make dev`.
 
-Similarly, to build assets for use in production, stop your Vite server and run `ddev exec npm run build`. But run `make build` periodically or after pulling down major changes.
+Likewise, to build assets for use in production, stop your Vite server and run `ddev exec npm run build` – but run `make build` periodically or after pulling down major changes.
 
 
 ## Makefile
@@ -103,7 +101,7 @@ A Makefile has been included to provide a unified CLI for common development com
 
 ## Craft CMS Plugins
 
-Note that [Vite](https://github.com/nystudio107/craft-vite) and [Postmark](https://plugins.craftcms.com/postmark) are the only two plugins currently installed by default. You can edit `composer.json.default` prior to running `make install` to add or remove plugins to your installation – just remember to mirror those choices in your `Makefile`.
+[Vite](https://github.com/nystudio107/craft-vite) and [Postmark](https://plugins.craftcms.com/postmark) are the only two plugins currently installed by default. You can edit `composer.json.default` prior to running `make install` to add or remove plugins to your installation – just remember to mirror those choices in your `Makefile`. _Note that many plugins require an additional configuration file in `/config`._
 
 
 ## Tailwind Plugins
@@ -120,13 +118,13 @@ Note that [Vite](https://github.com/nystudio107/craft-vite) and [Postmark](https
 
 
 ## Roadmap
-- Tailwind 3
-- Thin out the plugins
-- Add some more commands
+- ~~Tailwind 3~~
+- ~~Thin out the plugins~~
+- ~~Bump php and mariadb~~
 - Improve default typography
 - Add some basic user management
 
 
 ## Acknowledgements & Credits
 
-Based on 1DR's excellent [Craft CMS Starter](https://github.com/onedarnleyroad/craftcms#acknowledgements--credits). Please read [1DR's credits](https://github.com/onedarnleyroad/craftcms#acknowledgements--credits)
+Based on 1DR's excellent [Craft CMS Starter](https://github.com/onedarnleyroad/craftcms#acknowledgements--credits). Please read [1DR's credits](https://github.com/onedarnleyroad/craftcms#acknowledgements--credits)!
