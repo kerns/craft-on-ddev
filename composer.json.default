@@ -2,7 +2,8 @@
   "require": {
     "craftcms/cms": "^3.7",
     "craftcms/postmark": "^2.1",
-    "nystudio107/craft-vite": "^1.0"
+    "nystudio107/craft-vite": "^1.0",
+    "vlucas/phpdotenv": "^3.6"
   },
   "require-dev": {
     "yiisoft/yii2-shell": "^2.0"
