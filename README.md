@@ -53,7 +53,7 @@ Finally, to install a clean version of Craft, run the following command and foll
 make install
 ```
 
-This does the heavy lifting of spinning up and configuring a sane, Dockerized development environment with a new and pre-tuned installation of Craft CMS. Part of that tuning involves the installation of plugins for Craft as defined in `composer.json.default`. You can edit/expand this list however you like, just remember to mirror those choices in your `Makefile`.
+This does the heavy lifting of spinning up and configuring a sane, Dockerized development environment running the latest version of Craft CMS. It also installs a selection of plugins for Craft as defined in `composer.json.default`. You can edit/expand this list however you like, just remember to mirror those choices in your `Makefile`.
 
 Pay special attention to the Craft installation prompts. After setting the admin's account credentials, you'll be prompted for your desired site name and url.
 
@@ -75,15 +75,15 @@ This command will:
 
 1. Copy your local SSH keys into the right container (handy if you are setting up [craft-scripts](https://github.com/nystudio107/craft-scripts/) or just want to shell into your project's container later with `ddev ssh` )
 2. (Re)Start your DDEV project (a series of networked Docker containers)
-3. (Re)Install the container's versions of Composer and npm, together with their dependencies
+3. (Re)Install the container's versions of Composer and npm, together with all their dependencies
 4. Instruct Vite to perform a one-time build for production (output in `/web/dist`)
 5. Finally, start a Vite dev server for HMR and live reloading
 
-Edit code in `src/` or `templates/` to confirm that changes are being pushed to your browser. (💡 `ddev launch` opens a browser pointed to the domain of your Craft project. It works from any location below your project's root directory.)
+Edit the default `index.twig` file in `templates/` to confirm that changes are being pushed to your browser. (💡 `ddev launch` opens a browser pointed to the domain of your Craft project. Like all project specific DDEV commands, it can be run from any location below your project's root directory.)
 
-Subsequently, you can save some time just running `ddev exec npm run serve` to initiate your Vite dev server, but after a `git pull` or other big changes to the codebase you'll want to re-run `make dev`.
+Subsequently, you can save some time just running `ddev exec npm run serve` to initiate your Vite dev server. But after a `git pull` or other big changes to the codebase you'll want to re-run `make dev`.
 
-Likewise, to build assets for use in production, stop your Vite server and run `ddev exec npm run build` – but run `make build` periodically or after pulling down major changes.
+Likewise, to build assets for use in production, stop your Vite server and run `ddev exec npm run build`. But run `make build` periodically or after pulling down major changes.
 
 
 ## Makefile
@@ -120,10 +120,9 @@ A Makefile has been included to provide a unified CLI for common development com
 ## Roadmap
 - ~~Tailwind 3~~
 - ~~Thin out the plugins~~
-- ~~Bump php and mariadb~~
+- ~~Bump php, mariadb + node~~
 - Mention some useful DDEV commands
 - Improve default typography
-- Add some basic user management
 
 
 ## Acknowledgements & Credits
