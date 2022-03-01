@@ -10,6 +10,12 @@
      }
   ],
   "minimum-stability":"dev",
+  "repositories": [
+    {
+       "type": "vcs",
+       "url": "https://github.com/kerns/craft-on-ddev/"
+    }
+  ],
   "scripts":{
      "post-create-project-cmd":[
         "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
