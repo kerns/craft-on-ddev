@@ -1,6 +1,6 @@
 {
   "name":"kerns/craft-on-ddev",
-  "description":"Craft Starter on DDEV",
+  "description":"Craft on DDEV",
   "type":"project",
   "license":"MIT",
   "authors":[

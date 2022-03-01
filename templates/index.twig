@@ -15,20 +15,11 @@
 <div class="flex justify-center w-full min-h-screen p-2 bg-fixed bg-cover lg:py-16 svg-bg">
   <div class="flex flex-col max-w-4xl p-8 bg-cover bg-oxford-blue-900">
     <main class="relative pt-16 prose prose-2xl prose-invert">
-      <h1 class="z-20 mb-6 text-5xl tracking-tighter text-center font-headline lg:text-7xl"><span class="font-normal">Hey.</span> It worked.</h1>
+      <h1 class="mb-6 text-5xl tracking-tighter text-center font-headline lg:text-7xl"><span class="font-normal"></span> It worked.</h1>
       <p class="text-center text-gray-300 font-body"><strong>{{ siteName }}</strong> is up and running at...</p>
 
       <!-- URL address bar and success confetti  -->
       <div class="relative">
-        {# Example of selecting a random item from an array in Twig #}
-        {% set animation = [
-              { src: 'https://assets10.lottiefiles.com/packages/lf20_pkanqwys.json', size:'h-64', position:'left-0 -top-64' },
-              { src: 'https://assets9.lottiefiles.com/packages/lf20_nxsyeqbd.json', size:'h-64', position:'left-0 -top-72' },
-              { src: 'https://assets8.lottiefiles.com/packages/lf20_3ki8odep.json', size:'h-64', position:'left-0 -top-80' },
-              { src: 'https://assets2.lottiefiles.com/packages/lf20_vwly0biq.json', size:'h-64', position:'left-0 -top-64' }
-            ] %}
-
-        {% set randomAnimation = shuffle(animation) | first %}
 
         {# Example of simple if/else conditional in Twig #}
         {% set url = craft.app.request.absoluteUrl %}
@@ -36,13 +27,28 @@
         {% set url = craft.app.request.absoluteUrl|trim('https://') %}
 
         {% if protocol == 'https' %}
-        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-        <lottie-player src="{{ randomAnimation.src }}" background="transparent" class="absolute z-10 {{ randomAnimation.size }} {{ randomAnimation.position }}" speed="1" autoplay></lottie-player>
+          {% set animationArray = [
+            { src: 'https://assets10.lottiefiles.com/packages/lf20_pkanqwys.json', size:'h-96', position:'left-0 -top-96' },
+            { src: 'https://assets9.lottiefiles.com/packages/lf20_nxsyeqbd.json', size:'h-64', position:'left-0 -top-72' },
+            { src: 'https://assets2.lottiefiles.com/packages/lf20_vwly0biq.json', size:'h-72', position:'left-0 -top-72' },
+            { src: 'https://assets1.lottiefiles.com/packages/lf20_rovf9gzu.json', size:'h-96', position:'left-0 -top-96' }
+          ] %}
+        {% else %}
+          {% set animationArray = [
+            { src: 'https://assets8.lottiefiles.com/packages/lf20_3ki8odep.json', size:'h-96', position:'left-0 -top-96' },
+          ] %}
+
         {% endif %}
 
-        <ul class="relative flex p-1 text-xl list-none bg-black border border-black shadow-lg shadow-inner lg:p-2 md:mx-8 lg:text-2xl rounded-xl shadow-black bg-opacity-30 not-prose xl:text-3xl bg-gradient-to-r from-black to-oxford-blue-900">
+        {# Example of selecting a random item from an array in Twig #}
+        {% set animation = shuffle(animationArray) | first %}
+
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player src="{{ animation.src }}" background="transparent" class="absolute z-10 {{ animation.size }} {{ animation.position }}" speed="1" autoplay></lottie-player>
+
+        <ul class="relative flex p-1 text-xl list-none bg-black border border-black shadow-lg shadow-inner md:mx-8 lg:text-2xl rounded-xl shadow-black bg-opacity-30 not-prose xl:text-3xl bg-gradient-to-r from-black to-oxford-blue-900">
           <li class="relative flex flex-1 w-5/6">
-            <span class="font-normal p-2 pr-1 rounded-md rounded-r-none border-opacity-80 opacity-80 {% if protocol == 'https' %} text-gray-900 from-green-400 via-green-400 to-lime-600 {% else %} from-oxford-blue-800 via-oxford-blue-500 to-oxford-blue-700 {% endif %} bg-gradient-to-bl lg:py-4">{{ protocol }}</span>
+            <span class="font-normal p-2 pr-1 rounded-md rounded-r-none border-opacity-80 opacity-80 {% if protocol == 'https' %} text-gray-900 from-green-400 via-green-400 to-lime-600 {% else %} from-oxford-blue-500 via-oxford-blue-500 to-oxford-blue-700 {% endif %} bg-gradient-to-bl lg:py-4">{{ protocol }}</span>
             <span class="overflow-hidden truncate no-wrap max-w-[220px] font-sans md:max-w-[500px] lg:max-w-none py-2 pl-1 font-bold text-gray-200 hover:text-gray-100 shrink bg-opacity-30 lg:py-4 lg:pr-32">
             <span class="font-normal text-gray-400">://</span>{{ url }}</span>
           </li>
@@ -59,33 +65,34 @@
 
       <hr>
 
-      <div class="px-4 text-gray-200 md:px-16 font-body">
+      <div class="px-4 pb-16 text-gray-200 md:px-16 font-body">
         <p>You’re viewing the <code>index.twig</code> file located at the root of your <code>templates/</code> directory.<p>
-        <p>Try editing this file after running <code>make dev</code> or <code>ddev exec npm run serve</code> to verify HMR and Live Reload are working.</p>
-        <p>And run <code>make build</code> or <code>ddev exec npm run build</code> to verify your build pipeline is working.</p>
+        <p>Try editing this file after running <code>make dev</code> or <code>ddev exec npm run serve</code> to start Vite, and verify HMR and Live Reload are working.</p>
+        <p>You can run <code>make build</code> or <code>ddev exec npm run build</code> to verify your build pipeline is working.</p>
+        <p>🧐 Reload this page once manually after starting Vite.</p>
       </div>
 
       <hr class="pb-12">
 
     </main>
 
-
     <!-- Footer -->
     {% set headerStyle = "lg:mt-2 mt-0 mb-4 text-xs tracking-wider font-headline font-thin uppercase" %}
-    {% set listStyle = "space-y-1 list-none" %}
+    {% set textStyle = "my-4 text-xs font-normal leading-normal prose text-gray-400 prose-a:text-gray-100 hover:prose-a:text-white" %}
+    {% set listStyle = "space-y-1 list-none font-body" %}
     {% set linkStyle = "text-sm font-medium text-blue-100 transition hover:text-white whitespace-nowrap" %}
 
     <footer>
-      <div class="grid grid-cols-2 gap-10 p-4 mb-3 md:px-8 md:grid-cols-3 lg:grid-cols-12 lg:gap-15">
+      <div class="grid grid-cols-2 gap-10 p-4 mb-3 md:px-8 md:grid-cols-3 lg:grid-cols-12 lg:gap-15 font-body">
 
         <div class="col-span-3">
-          <a href="https://github.com/kerns/craft-on-ddev/" class="flex items-center space-x-2 font-black leading-none text-white select-none ">Craft on DDEV <span class="sr-only">- Visit GitHub</span>
+          <a href="https://github.com/kerns/craft-on-ddev/" class="flex items-center space-x-2 font-black leading-none text-white select-none font-headline ">Craft on DDEV <span class="sr-only">- Visit GitHub</span>
             <svg class="w-6 h-6" height="24" width="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
             </svg>
           </a>
-          <p class="my-4 text-xs font-bold leading-normal prose text-gray-400 prose-a:text-blue-100 hover:prose-a:text-white">Dockerized local development for Craft CMS via DDEV<p>
-          <p class="my-4 text-xs leading-normal prose text-gray-400 prose-a:text-blue-100 hover:prose-a:text-white">Credit and Special thanks to <a href="https://github.com/johndwells">John D. Wells Jr.</a> / <a href="https://www.onedarnleyroad.com">One Darnley Road</a> and <a href="https://twitter.com/gaijinity">Andrew Welch</a> / <a href="https://nystudio107.com/">nystudio107</a>.</p>
+          <p class="{{textStyle}}">Dockerized local development for Craft CMS via DDEV. Questions or ideas: <a href="https://twitter.com/kerns" class="no-underline">@kerns</a><p>
+          <p class="{{textStyle}}">With credit and special thanks to <a href="https://github.com/johndwells" class="no-underline">John D. Wells Jr.</a>  and <a href="https://twitter.com/gaijinity" class="no-underline">Andrew Welch</a>.</p>
         </div>
 
         <nav class="col-span-1 md:col-span-1 lg:col-span-2 lg:col-start-5 lg:col-end-7">
