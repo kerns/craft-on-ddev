@@ -20,20 +20,23 @@ Dockerized local development for Craft CMS, pre-configured with Vite and built o
 
 ## Getting Started
 
-Assuming you have [Composer](https://getcomposer.org/) installed on your local machine, you can use the `create-project` command to kickoff a new project. If you don't have Composer, please [get Composer](https://getcomposer.org/). Mac users running Homebrew can simply run `brew install composer`.
+Make sure you have installed Docker, DDEV and Composer before continuing.
+
+* Docker Desktop - Visit [docker.com/get-started](https://www.docker.com/get-started)
+* DDEV - Visit [ddev.com/get-started/](https://ddev.com/get-started/)
+* Composer - You could visit [getcomposer.org/](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos) but if you're using macOS and already running Homebrew, simply run `brew install composer`.
 
 With that behind you, open a terminal prompt and run:
 
 ```shell
-composer create-project kerns/craft-on-ddev <YOUR PATH HERE> --no-install
+composer create-project kerns/craft-on-ddev <YOUR PATH HERE> --no-install && cd <YOUR PATH HERE>
 ```
 
 Make sure that `<YOUR PATH HERE>` is the location of a **new** or **existing and empty** folder.
- 
 
-## Configuring DDEV (Optional)
+## Configuring DDEV
 
-You could skip this step if you're happy settling for the default domain, `https://craftcms.ddev.site`. But cool kidz don't settle for default domains. Demonstrate your commitment to this project by specifying a custom domain. Do so by running:
+You could skip this step if you're happy settling for the default domain, `https://craftcms.ddev.site`. But cool kidz don't settle for default domains. Demonstrate your commitment to this project by specifying a custom domain. Do so by running the following command from the root of the directory you just created:
 
 ```shell
 ddev config
@@ -55,13 +58,12 @@ make install
 
 This does the heavy lifting of spinning up and configuring a sane, Dockerized development environment running the latest version of Craft CMS. It also installs a selection of plugins for Craft as defined in `composer.json.default`. You can edit/expand this list however you like, just remember to mirror those choices in your `Makefile`.
 
-Pay special attention to the Craft installation prompts. After setting the admin's account credentials, you'll be prompted for your desired site name and url.
+**Pay special attention to the Craft installation prompts**. After setting the admin's account credentials, you'll be prompted for your desired site name and url.
 
-Note that the url defaults to `https://craftcms.ddev.site`, making the assumption that you are not cool and did not run `ddev config` to specify a custom name for your project. Just remember to update this with the full url if you ran `ddev config` to specify a custom domain. 😎 (for ex. `https://my-website.ddev.site`).
+Note that the url defaults to `https://craftcms.ddev.site`. If you ran `ddev config` and specified a custom name for your project (e.g. "my-project"), then the url of your project has been changed accordingly. Answer this prompt with that full url (😎 e.g. `https://my-website.ddev.site`).
 
-(💡 If you forgot to note the url open another terminal window in the same directory and run `ddev describe`)
+_💡 If you're unclear or forgot to note the url, open another terminal window in the same directory and run `ddev describe`_
 
-Once the process is complete, type `ddev launch` to open the project in your default browser. 🚀
 
 ## Local Development with Vite
 
@@ -101,7 +103,9 @@ A Makefile has been included to provide a unified CLI for common development com
 
 ## Craft CMS Plugins
 
-[Vite](https://github.com/nystudio107/craft-vite) and [Postmark](https://plugins.craftcms.com/postmark) are the only two plugins currently installed by default. You can edit `composer.json.default` prior to running `make install` to add or remove plugins to your installation – just remember to mirror those choices in your `Makefile`. _Note that many plugins require an additional configuration file in `/config`._
+[Vite](https://github.com/nystudio107/craft-vite) and [Postmark](https://plugins.craftcms.com/postmark) are the only two plugins currently installed by default. You can edit `composer.json.default` prior to running `make install` to add or remove plugins to your installation – just remember to mirror those choices in your `Makefile`.
+
+_💡Note that many plugins require an additional configuration file in `/config`._
 
 
 ## Tailwind Plugins
@@ -121,10 +125,11 @@ A Makefile has been included to provide a unified CLI for common development com
 - ~~Tailwind 3~~
 - ~~Thin out the plugins~~
 - ~~Bump php, mariadb + node~~
-- Mention some useful DDEV commands
-- Improve default typography
+- Include most useful DDEV commands
+- Improve default error page layouts
+- Option for latest Craft 3 or Craft 4 Beta when it becomes available
 
 
 ## Acknowledgements & Credits
 
-Based on 1DR's excellent [Craft CMS Starter](https://github.com/onedarnleyroad/craftcms#acknowledgements--credits). Please read [1DR's credits](https://github.com/onedarnleyroad/craftcms#acknowledgements--credits)!
+Based on 1DR's excellent [Craft CMS Starter](https://github.com/onedarnleyroad/craftcms). Please read [1DR's credits](https://github.com/onedarnleyroad/craftcms#acknowledgements--credits)!
