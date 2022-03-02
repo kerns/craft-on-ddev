@@ -16,16 +16,17 @@
   <div class="flex flex-col max-w-4xl p-8 bg-cover bg-oxford-blue-900">
     <main class="relative pt-16 prose prose-2xl prose-invert">
       <h1 class="mb-6 text-5xl tracking-tighter text-center font-headline lg:text-7xl"><span class="font-normal"></span> It worked.</h1>
-      <p class="text-center text-gray-300 font-body"><strong>{{ siteName }}</strong> is up and running at...</p>
+      <p class="text-center text-gray-400 font-body"><strong>{{ siteName }}</strong> is up and running at...</p>
 
       <!-- URL address bar and success confetti  -->
       <div class="relative">
 
-        {# Example of simple if/else conditional in Twig #}
+        {# Example of setting/requesting/testing and filtering vars in Twig #}
         {% set url = craft.app.request.absoluteUrl %}
         {% set protocol = 'https://' in url ? 'https' : 'http' %}
         {% set url = craft.app.request.absoluteUrl|trim('https://') %}
 
+        {# Example of simple if/else conditional in Twig #}
         {% if protocol == 'https' %}
           {% set animationArray = [
             { src: 'https://assets10.lottiefiles.com/packages/lf20_pkanqwys.json', size:'h-96', position:'left-0 -top-96' },
@@ -69,7 +70,6 @@
         <p>You’re viewing the <code>index.twig</code> file located at the root of your <code>templates/</code> directory.<p>
         <p>Try editing this file after running <code>make dev</code> or <code>ddev exec npm run serve</code> to start Vite, and verify HMR and Live Reload are working.</p>
         <p>You can run <code>make build</code> or <code>ddev exec npm run build</code> to verify your build pipeline is working.</p>
-        <p>🧐 Reload this page once manually after starting Vite.</p>
       </div>
 
       <hr class="pb-12">

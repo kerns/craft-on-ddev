@@ -13,12 +13,14 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
       <meta name="referrer" content="origin-when-cross-origin" />
       <title>{{ siteName }}</title>
-      {% include "_includes/analytics.twig" %}
+
+      {# {% include "_includes/analytics.twig" %} #}
       {% include "_includes/fonts.twig" %}
       {% include "_includes/scripts.twig" %}
     </head>
+
     {% block bodyTag %}
-      <body class="relative flex flex-col min-h-screenh antialiased">
+      <body class="relative flex flex-col antialiased min-h-screenh">
     {% endblock %}
       {% block content %}{% endblock %}
     </body>
