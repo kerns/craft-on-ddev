@@ -29,15 +29,14 @@ Make sure you have installed Docker, DDEV and Composer before continuing.
 With that behind you, open a terminal prompt and run:
 
 ```shell
-composer create-project kerns/craft-on-ddev <YOUR PATH HERE> --no-install
+composer create-project kerns/craft-on-ddev <YOUR PATH HERE> --no-install && cd <YOUR PATH HERE>
 ```
 
 Make sure that `<YOUR PATH HERE>` is the location of a **new** or **existing and empty** folder.
- 
 
 ## Configuring DDEV
 
-You could skip this step if you're happy settling for the default domain, `https://craftcms.ddev.site`. But cool kidz don't settle for default domains. Demonstrate your commitment to this project by specifying a custom domain. Do so by running:
+You could skip this step if you're happy settling for the default domain, `https://craftcms.ddev.site`. But cool kidz don't settle for default domains. Demonstrate your commitment to this project by specifying a custom domain. Do so by running the following command from the root of the directory you just created:
 
 ```shell
 ddev config
