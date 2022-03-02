@@ -121,10 +121,10 @@ A Makefile has been included to provide a unified CLI for common development com
 - ~~Tailwind 3~~
 - ~~Thin out the plugins~~
 - ~~Bump php, mariadb + node~~
-- Mention some useful DDEV commands
-- Improve default typography
+- Include most useful DDEV commands
+- Option for latest Craft 3 or Craft 4 Beta when it becomes available
 
 
 ## Acknowledgements & Credits
 
-Based on 1DR's excellent [Craft CMS Starter](https://github.com/onedarnleyroad/craftcms#acknowledgements--credits). Please read [1DR's credits](https://github.com/onedarnleyroad/craftcms#acknowledgements--credits)!
+Based on 1DR's excellent [Craft CMS Starter](https://github.com/onedarnleyroad/craftcms). Please read [1DR's credits](https://github.com/onedarnleyroad/craftcms#acknowledgements--credits)!
