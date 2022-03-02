@@ -35,7 +35,7 @@ composer create-project kerns/craft-on-ddev <YOUR PATH HERE> --no-install
 Make sure that `<YOUR PATH HERE>` is the location of a **new** or **existing and empty** folder.
  
 
-## Configuring DDEV (Optional)
+## Configuring DDEV
 
 You could skip this step if you're happy settling for the default domain, `https://craftcms.ddev.site`. But cool kidz don't settle for default domains. Demonstrate your commitment to this project by specifying a custom domain. Do so by running:
 
@@ -59,13 +59,12 @@ make install
 
 This does the heavy lifting of spinning up and configuring a sane, Dockerized development environment running the latest version of Craft CMS. It also installs a selection of plugins for Craft as defined in `composer.json.default`. You can edit/expand this list however you like, just remember to mirror those choices in your `Makefile`.
 
-Pay special attention to the Craft installation prompts. After setting the admin's account credentials, you'll be prompted for your desired site name and url.
+**Pay special attention to the Craft installation prompts**. After setting the admin's account credentials, you'll be prompted for your desired site name and url.
 
-Note that the url defaults to `https://craftcms.ddev.site`, making the assumption that you are not cool and did not run `ddev config` to specify a custom name for your project. Just remember to update this with the full url if you ran `ddev config` to specify a custom domain. 😎 (for ex. `https://my-website.ddev.site`).
+Note that the url defaults to `https://craftcms.ddev.site`. If you ran `ddev config` and specified a custom name for your project (e.g. "my-project"), then the url of your project has been changed accordingly. Answer this prompt with that full url (😎 e.g. `https://my-website.ddev.site`).
 
-_💡 If you forgot to note the url open another terminal window in the same directory and run `ddev describe`_
+_💡 If you're unclear or forgot to note the url, open another terminal window in the same directory and run `ddev describe`_
 
-Once the process is complete, type `ddev launch` to open the project in your default browser. 🚀
 
 ## Local Development with Vite
 
