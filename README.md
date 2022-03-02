@@ -127,6 +127,7 @@ _💡Note that many plugins require an additional configuration file in `/config
 - ~~Thin out the plugins~~
 - ~~Bump php, mariadb + node~~
 - Include most useful DDEV commands
+- Improve default error page layouts
 - Option for latest Craft 3 or Craft 4 Beta when it becomes available
 
 
