@@ -29,9 +29,9 @@
         {# Example of simple if/else conditional in Twig #}
         {% if protocol == 'https' %}
           {% set animationArray = [
-            { src: 'https://assets10.lottiefiles.com/packages/lf20_pkanqwys.json', size:'h-96', position:'left-0 -top-96' },
+            { src: 'https://assets10.lottiefiles.com/packages/lf20_pkanqwys.json', size:'h-96', position:'left-0 -top-96 ' },
             { src: 'https://assets9.lottiefiles.com/packages/lf20_nxsyeqbd.json', size:'h-64', position:'left-0 -top-72' },
-            { src: 'https://assets2.lottiefiles.com/packages/lf20_vwly0biq.json', size:'h-72', position:'left-0 -top-72' },
+            { src: 'https://assets2.lottiefiles.com/packages/lf20_vwly0biq.json', size:'h-72', position:'left-0 -top-72 mt-2' },
             { src: 'https://assets1.lottiefiles.com/packages/lf20_rovf9gzu.json', size:'h-96', position:'left-0 -top-96' }
           ] %}
         {% else %}
@@ -47,7 +47,7 @@
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
         <lottie-player src="{{ animation.src }}" background="transparent" class="absolute z-10 {{ animation.size }} {{ animation.position }}" speed="1" autoplay></lottie-player>
 
-        <ul class="relative flex p-1 text-xl list-none bg-black border border-black shadow-lg shadow-inner md:mx-8 lg:text-2xl rounded-xl shadow-black bg-opacity-30 not-prose xl:text-3xl bg-gradient-to-r from-black to-oxford-blue-900">
+        <ul class="relative z-20 flex p-1 text-xl list-none bg-black border border-black shadow-lg shadow-inner md:mx-8 lg:text-2xl rounded-xl shadow-black bg-opacity-30 not-prose xl:text-3xl bg-gradient-to-r from-black to-oxford-blue-900">
           <li class="relative flex flex-1 w-5/6">
             <span class="font-normal p-2 pr-1 rounded-md rounded-r-none border-opacity-80 opacity-80 {% if protocol == 'https' %} text-gray-900 from-green-400 via-green-400 to-lime-600 {% else %} from-oxford-blue-500 via-oxford-blue-500 to-oxford-blue-700 {% endif %} bg-gradient-to-bl lg:py-4">{{ protocol }}</span>
             <span class="overflow-hidden truncate no-wrap max-w-[220px] font-sans md:max-w-[500px] lg:max-w-none py-2 pl-1 font-bold text-gray-200 hover:text-gray-100 shrink bg-opacity-30 lg:py-4 lg:pr-32">
@@ -64,15 +64,19 @@
         </ul>
       </div>
 
-      <hr>
+      <hr class="h-2 mx-auto mb-16 rounded-full w-[25%] bg-slate-800">
 
-      <div class="px-4 pb-16 text-gray-200 md:px-16 font-body">
-        <p>You’re viewing the <code>index.twig</code> file located at the root of your <code>templates/</code> directory.<p>
-        <p>Try editing this file after running <code>make dev</code> or <code>ddev exec npm run serve</code> to start Vite, and verify HMR and Live Reload are working.</p>
-        <p>You can run <code>make build</code> or <code>ddev exec npm run build</code> to verify your build pipeline is working.</p>
+      {% set pStyle = "text-slate-300" %}
+      {% set hrStyle = "after:block after:w-16 after:h-2 after:mx-auto after:rounded-full after:bg-opacity-70 after:mt-8 after:border-0" %}
+
+      <div class="px-4 pb-16 md:text-center md:px-16 font-body">
+        <p class="{{pStyle}} {{hrStyle}} after:bg-red-200">You’re viewing the <code>index.twig</code> file located at the root of your <code>/templates</code> directory.<p>
+        <p class="{{pStyle}} {{hrStyle}} after:bg-yellow-200">Start your Vite server with <code>make dev</code> or <code>ddev exec npm run serve</code> to enable HMR and Live Reload.</p>
+        <p class="{{pStyle}} {{hrStyle}} after:bg-green-200">Then make some changes to this or another file used to build this page to verify eveything is working.</p>
+        <p class="{{pStyle}}">When you are ready to build your site for production run <code>make build</code> or <code>ddev exec npm run build</code>. The default location for bundled assets is <code>/web/dist/</code>.</p>
       </div>
 
-      <hr class="pb-12">
+      <hr class="h-1 mx-auto mb-6 rounded-full w-[95%] bg-slate-800">
 
     </main>
 
