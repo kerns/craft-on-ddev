@@ -99,7 +99,7 @@ A Makefile has been included to provide a unified CLI for common development com
 - `make composer xxx` - Run Composer commands inside the container, e.g. `make composer install`
 - `make craft xxx` - Run Craft commands inside the container, e.g. `make craft project-config/touch`
 - `make npm xxx` - Run npm commands inside the container, e.g. `make npm install`
-- `make pull` - Pull remote db & assets (requires setting up [craft-scripts](https://github.com/nystudio107/craft-scripts/)
+- `make pull` - Pull remote db & assets (requires setting up [craft-scripts](https://github.com/nystudio107/craft-scripts/))
 
 ## Craft CMS Plugins
 
