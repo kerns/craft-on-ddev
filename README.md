@@ -81,7 +81,11 @@ This command will:
 4. Instruct Vite to perform a one-time build for production (output in `/web/dist`)
 5. Finally, start a Vite dev server for HMR and live reloading
 
-Edit the default `index.twig` file in `templates/` to confirm that changes are being pushed to your browser. (💡 `ddev launch` opens a browser pointed to the domain of your Craft project. Like all project specific DDEV commands, it can be run from any location below your project's root directory.)
+
+_💡 Run `ddev launch` to open the domain of your Craft project in your default browser. Like all project specific DDEV commands, it can be run from any location below your project's root directory._
+
+
+Edit the default `index.twig` file in `templates/` to confirm that changes are being pushed to your browser.
 
 Subsequently, you can save some time just running `ddev exec npm run serve` to initiate your Vite dev server. But after a `git pull` or other big changes to the codebase you'll want to re-run `make dev`.
 
