@@ -91,7 +91,7 @@ Likewise, to build assets for use in production, stop your Vite server and run `
 - `make install` - Runs a complete one-time process to set the project up and install Craft.
 - `make up` - Starts the DDEV project, ensuring that SSH keys have been added, and npm & Composer have been installed.
 - `make dev` - Runs a one-time build of all front-end assets, then starts Vite's server for HMR and live reloading.
-- `make build` - Builds all front-end assets for use in production (defauly location is `/web/dist/`.
+- `make build` - Builds all front-end assets for use in production (default location is `/web/dist/`.
 - `make composer xxx` - Run Composer commands inside the container, e.g. `make composer install`
 - `make craft xxx` - Run Craft commands inside the container, e.g. `make craft project-config/touch`
 - `make npm xxx` - Run npm commands inside the container, e.g. `make npm install`
@@ -113,7 +113,7 @@ _💡Note that many plugins will require an additional configuration file in you
 1. [Aspect Ratio](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
 1. [Line Clamp](https://github.com/tailwindlabs/tailwindcss-line-clamp)
 1. [Typography](https://github.com/tailwindlabs/tailwindcss-typography)
-1. [Forms](https://github.com/tailwindlabs/tailwindcss-forms) (* Beta)
+1. [Forms](https://github.com/tailwindlabs/tailwindcss-forms)
 
 ### Included Javascript Libraries
 
