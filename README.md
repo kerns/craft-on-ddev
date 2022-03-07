@@ -110,15 +110,15 @@ _💡Note that many plugins will require an additional configuration file in you
 
 ### Included Tailwind Plugins
 
-1. [Aspect Ratio](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
-1. [Line Clamp](https://github.com/tailwindlabs/tailwindcss-line-clamp)
-1. [Typography](https://github.com/tailwindlabs/tailwindcss-typography)
-1. [Forms](https://github.com/tailwindlabs/tailwindcss-forms)
+* [Aspect Ratio](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
+* [Line Clamp](https://github.com/tailwindlabs/tailwindcss-line-clamp)
+* [Typography](https://github.com/tailwindlabs/tailwindcss-typography)
+* [Forms](https://github.com/tailwindlabs/tailwindcss-forms)
 
 ### Included Javascript Libraries
 
-1. [AlpineJS](https://alpinejs.dev/)
-1. [Lazysizes](https://afarkas.github.io/lazysizes/)
+* [AlpineJS](https://alpinejs.dev/)
+* [Lazysizes](https://afarkas.github.io/lazysizes/)
 
 
 ## Roadmap
