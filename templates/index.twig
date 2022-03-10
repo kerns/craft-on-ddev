@@ -48,7 +48,7 @@
 
         <ul class="relative z-20 flex p-1 text-xl list-none bg-black border border-black shadow-inner md:mx-8 lg:text-2xl rounded-xl shadow-black bg-opacity-30 not-prose xl:text-3xl bg-gradient-to-r from-black to-oxford-blue-900">
           <li class="relative flex flex-1 w-5/6">
-            <span class="font-normal p-2 pr-1 rounded-md rounded-r-none border-opacity-80 opacity-80 {% if protocol == 'https' %} text-gray-900 from-green-400 via-green-400 to-lime-600 {% else %} from-oxford-blue-500 via-oxford-blue-500 to-oxford-blue-700 {% endif %} bg-gradient-to-bl lg:py-4">{{ protocol }}</span>
+            <span class="font-normal p-2 pr-1 rounded-md rounded-r-none border-opacity-80 opacity-80 {% if protocol == 'https' %} text-gray-900 from-green-200 via-green-400 to-lime-600 {% else %} from-oxford-blue-500 via-oxford-blue-500 to-oxford-blue-700 {% endif %} bg-gradient-to-b lg:py-4">{{ protocol }}</span>
             <span class="overflow-hidden truncate no-wrap max-w-[220px] font-sans md:max-w-[500px] lg:max-w-none py-2 pl-1 font-bold text-gray-200 hover:text-gray-100 shrink bg-opacity-30 lg:py-4 lg:pr-32">
             <span class="font-normal text-gray-400">://</span>{{ url }}</span>
           </li>
@@ -65,8 +65,8 @@
 
       <hr class="h-2 mx-auto mb-6 rounded-full w-[95%] bg-white border-0 bg-opacity-10">
 
-      {% set pStyle = "text-slate-300 md:pb-8 lg:text-3xl leading-relaxed" %}
-      {% set hrStyle = "after:block after:w-12 md:after:w-16 after:h-2 after:mx-auto after:rounded-full after:bg-opacity-80 after:mt-8 md:after:mt-16 after:border-0" %}
+      {% set pStyle = "text-slate-300 md:pb-8 lg:text-3xl" %}
+      {% set hrStyle = "after:block after:w-12 md:after:w-14 after:h-2 after:mx-auto after:rounded-full after:bg-opacity-80 after:mt-8 md:after:mt-16 after:border-0" %}
 
       <div class="p-4 mb-12 md:text-center md:px-16 font-body">
         <p class="{{pStyle}} {{hrStyle}} after:bg-red-300">You’re viewing the <code>index.twig</code> file located at the root of your <code>/templates</code> directory.<p>
