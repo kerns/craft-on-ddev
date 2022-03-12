@@ -3,7 +3,7 @@
 {# Example of passing variables up to the extended (parent) layout #}
 {% block bodyTag %}
 {{ parent()|attr({
-    style: 'background: linear-gradient(180deg, #1f005c, #5b0060, #870160, #ac255e, #ca485c, #e16b5c, #f39060, #ffb56b);'
+    class: 'svg-bg bg-fixed bg-cover'
   }) }}
 {% endblock %}
 
@@ -12,7 +12,7 @@
 {# Example of a simple template include #}
 {% include "_includes/svg-bg.twig" %}
 
-<div class="flex justify-center w-full min-h-screen p-2 bg-fixed bg-cover lg:py-16 svg-bg">
+<div class="flex justify-center w-full min-h-screen p-2 bg-fixed bg-cover lg:py-16">
   <div class="flex flex-col max-w-5xl p-8 bg-cover bg-oxford-blue-900">
     <main class="relative pt-16 prose prose-2xl prose-invert">
       <h1 class="mb-6 text-5xl tracking-tighter text-center font-headline lg:text-7xl"><span class="font-normal"></span> It worked.</h1>
@@ -46,21 +46,24 @@
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
         <lottie-player src="{{ animation.src }}" background="transparent" class="absolute z-10 {{ animation.size }} {{ animation.position }}" speed="1" autoplay></lottie-player>
 
-        <ul class="relative z-20 flex p-1 text-xl list-none bg-black border border-black shadow-inner md:mx-8 lg:text-2xl rounded-xl shadow-black bg-opacity-30 not-prose xl:text-3xl bg-gradient-to-r from-black to-oxford-blue-900">
-          <li class="relative flex flex-1 w-5/6">
-            <span class="font-normal p-2 pr-1 rounded-md rounded-r-none border-opacity-80 opacity-80 {% if protocol == 'https' %} text-gray-900 from-green-200 via-green-400 to-lime-600 {% else %} from-oxford-blue-500 via-oxford-blue-500 to-oxford-blue-700 {% endif %} bg-gradient-to-b lg:py-4">{{ protocol }}</span>
-            <span class="overflow-hidden truncate no-wrap max-w-[220px] font-sans md:max-w-[500px] lg:max-w-none py-2 pl-1 font-bold text-gray-200 hover:text-gray-100 shrink bg-opacity-30 lg:py-4 lg:pr-32">
-            <span class="font-normal text-gray-400">://</span>{{ url }}</span>
-          </li>
+        {# Example of testing a condition and setting a var based on the outcome in Twig  #}
+        {% set cpUrl = (currentUser and currentUser.can('accessCp')) ? "dashboard" : "login" %}
 
-          <li class="flex flex-col justify-center px-2 rounded-r-sm lg:py-4">
-            <a href="{{ cpUrl('') }}" class="absolute flex items-center p-1 text-xs md:text-sm font-bold text-white uppercase truncate transition-all rounded shadow-md lg:p-2 right-2 lg:right-4 bg-[#e12d39] group no-wrap pl-2 lg:pl-3">Control Panel
-              <svg xmlns="http://www.w3.org/2000/svg" class="duration-300 w-0 h-6 ml-1 group-hover:mt-0.5 mt-2 group-hover:w-6 group-hover:right-0 relative -right-10 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24">
+
+
+        <a href="{{ cpUrl('') }}" class="bg-gradient-to-r from-oxford-blue-600 900 to-black group no-underline relative z-20  group flex overflow-hidden max-w-lg lg:max-w-4xl shadow-inner md:max-w-3xl mx-auto rounded-xl shadow-black">
+          <span class="font-normal p-2 pr-1 m-1 rounded-md rounded-r-none border-opacity-80 opacity-80 {% if protocol == 'https' %} text-gray-900 from-green-200 via-green-400 to-lime-600 bg-gradient-to-b{% else %} bg-oxford-blue-400 {% endif %}  lg:py-4">{{ protocol }}</span>
+          <span class="p-2 lg:py-4 pl-1 m-1 -ml-1 flex-1 overflow-hidden relative"><span class="font-normal text-gray-400">://</span>{{ url }}<span class="text-gray-500 relative -right-2 opacity-0 duration-500 transition-all group-hover:right-0 group-hover:opacity-100">/admin/{{cpUrl}}</span></span>
+          <span class="bg-black m-1 flex flex-col justify-center absolute right-0  after:h-full after:w-16 after:block after:-left-14 after:top-0 after:absolute after:bg-gradient-to-l after:from-black after:to-transparent ">
+            <span href="{{ cpUrl('') }}" class="m-2 lg:m-4 flex overflow-hidden items-center text-xs md:text-sm font-bold text-white uppercase transition-all rounded p-2 right-2 lg:right-4 bg-[#e12d39] no-wrap pl-3">Control Panel
+              <svg xmlns="http://www.w3.org/2000/svg" class="duration-300 w-0 h-6 ml-1 mt-0.5  group-hover:w-6 group-hover:right-0 relative -right-10 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
-          </li>
-        </ul>
+            </span>
+          </span>
+        </a>
+
+
       </div>
 
       <hr class="h-2 mx-auto mb-6 rounded-full w-[95%] bg-white border-0 bg-opacity-10">
