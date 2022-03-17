@@ -115,7 +115,6 @@ To build assets for use in production, stop your Vite server and run `make bundl
 
 The following plugins are installed by default:
 
--   [Sprig](https://github.com/putyourlightson/craft-sprig)
 -   [Vite](https://github.com/nystudio107/craft-vite)
 -   [Template Comments](https://github.com/nystudio107/craft-templatecomments)
 -   [Postmark](https://plugins.craftcms.com/postmark)

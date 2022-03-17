@@ -27,7 +27,6 @@ install: up build
 		$(filter-out $@,$(MAKECMDGOALS))
 	ddev exec php craft install \
 		$(filter-out $@,$(MAKECMDGOALS))
-	ddev exec php craft plugin/install sprig
 	ddev exec php craft plugin/install vite
 	ddev exec php craft plugin/install templatecomments
 	ddev exec php craft plugin/install postmark
