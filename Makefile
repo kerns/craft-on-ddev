@@ -1,9 +1,13 @@
-.PHONY: build dev composer craft npm pull up install
+.PHONY: build dev serve bundle composer craft npm pull up install
 
 build: up
 	ddev exec npm run build
 dev: build
 	ddev exec npm run serve
+serve:
+	ddev exec npm run serve
+bundle:
+	ddev exec npm run build
 composer: up
 	ddev composer \
 		$(filter-out $@,$(MAKECMDGOALS))
@@ -23,11 +27,12 @@ install: up build
 		$(filter-out $@,$(MAKECMDGOALS))
 	ddev exec php craft install \
 		$(filter-out $@,$(MAKECMDGOALS))
-	ddev exec php craft plugin/install postmark
+	ddev exec php craft plugin/install sprig
 	ddev exec php craft plugin/install vite
-# You can expand this list of plugins however you like.
+	ddev exec php craft plugin/install templatecomments
+	ddev exec php craft plugin/install postmark
+# 👆You can expand this list of plugins however you like.
 # Just remember to update requirements in composer.json.default
-
 up:
 	if [ ! "$$(ddev describe | grep running)" ]; then \
         ddev auth ssh; \

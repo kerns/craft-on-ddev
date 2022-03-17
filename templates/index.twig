@@ -85,10 +85,10 @@
       {% set hrStyle = "after:block after:w-12 md:after:w-14 after:h-2 after:mx-auto after:rounded-full after:bg-opacity-80 after:mt-8 md:after:mt-16 after:border-0" %}
 
       <div class="mb-12 p-4 md:text-center md:px-16 font-body">
-        <p class="{{pStyle}} {{hrStyle}} after:bg-red-300">You’re viewing the <code>index.twig</code> file located at the root of your <code>/templates</code> directory.<p>
-        <p class="{{pStyle}} {{hrStyle}} after:bg-yellow-300">Start your Vite server with <code>make dev</code> or <code>ddev exec npm run serve</code> to enable HMR and Live Reload.</p>
-        <p class="{{pStyle}} {{hrStyle}} after:bg-green-300">Then make some changes to <code>index.twig</code> (or any other file used to build this page) to verify changes are being pushed to your browser.</p>
-        <p class="{{pStyle}}">When you are ready to build your project for production run <code>make build</code> or <code>ddev exec npm run build</code>. The default location for bundled assets is <code>/web/dist/</code>.</p>
+        <p class="{{pStyle}} {{hrStyle}} after:bg-pink-300">You’re viewing the <code>index.twig</code> file located at the root of your <code>/templates</code> directory.<p>
+        <p class="{{pStyle}} {{hrStyle}} after:bg-blue-300">You can run <code>make serve</code> to start Vite, enabling HMR and Live Reload.</p>
+        <p class="{{pStyle}} {{hrStyle}} after:bg-teal-300">Then make some changes to <code>index.twig</code> to verify changes are being pushed to your browser.</p>
+        <p class="{{pStyle}}">Build your project for production with <code>make build</code>. The default location for bundled assets is <code>/web/dist/</code>.</p>
       </div>
 
       <hr class="h-2 mx-auto mb-6 rounded-full w-[95%] bg-white border-0 bg-opacity-10">
@@ -146,5 +146,5 @@
 
   </div>
 </div>
-<div class="text-center text-oxford-blue-100 text-xs py-8 opacity-80 hidden">Background courtesy of <a href="http://svgbackgrounds.com/" class="text-pink-200 hover:text-pink-50 pb-16">svgbackgrounds.com</a></div>
+<div class="text-center text-oxford-blue-100 text-xs pb-12 opacity-80 hidden md:block md:pt-4 lg:pt-0">Background courtesy <a href="http://svgbackgrounds.com/" class="text-violet-200 hover:text-violet-50">svgbackgrounds.com</a> by <a href="https://twitter.com/MattVisiwig" class="text-violet-200 hover:text-violet-50">@MattVisiwig</a></div>
 {% endblock %}
