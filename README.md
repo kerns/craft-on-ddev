@@ -28,7 +28,7 @@ Make sure that `<YOUR PATH HERE>` is the location of a **new** or **existing and
 
 ### II. Configuring DDEV
 
-You could skip this step if you're happy settling for the default domain, `https://craftcms.ddev.site`. But cool kidz don't settle for default domains. Demonstrate your commitment to this project by specifying a custom domain. Do so by running the following command from the root of the directory you just created:
+You could skip this step if you're happy settling for the default domain, `https://craftcms.ddev.site`. But cool kidz don't settle for default domains. Give your project a custom domain by running the following command from the root of the directory you just created:
 
 ```shell
 ddev config
