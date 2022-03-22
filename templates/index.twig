@@ -12,11 +12,11 @@
 {# Example of a simple template include #}
 {% include "_includes/svg-bg.twig" %}
 
-<div class="bg-fixed flex justify-center w-full min-h-screen lg:p-8 xl:p-16 p-2 bg-cover">
-  <div class="flex flex-col max-w-5xl md:p-8 p-4 bg-cover bg-oxford-blue-900">
+<div class="flex justify-center w-full min-h-screen p-2 md:p-8 xl:p-16 sm:p-4">
+  <div class="flex flex-col max-w-5xl p-4 bg-cover shadow-2xl md:p-8 bg-oxford-blue-900">
     <main class="relative pt-16 prose prose-2xl prose-invert">
       <h1 class="mb-6 text-5xl tracking-tighter text-center font-headline lg:text-7xl"><span class="font-normal"></span> It worked.</h1>
-      <p class="text-center text-gray-400 font-body text-sm md:text-xl"><strong>{{ siteName }}</strong> is up and running at...</p>
+      <p class="text-sm text-center text-gray-400 font-body md:text-xl"><strong>{{ siteName }}</strong> is up and running at...</p>
 
       <!-- URL address bar and success confetti  -->
       <div class="relative">
@@ -52,10 +52,10 @@
         {# Project URL display #}
         <div class="container p-4">
 
-          <a href="{{ cpUrl('') }}" class="md:text-2xl bg-gradient-to-r from-oxford-blue-600 900 to-black group no-underline relative z-20 group flex overflow-hidden shadow-inner mx-auto rounded-md lg:rounded-xl shadow-black">
+          <a href="{{ cpUrl('') }}" class="relative z-20 flex mx-auto overflow-hidden no-underline rounded-md shadow-inner md:text-2xl bg-gradient-to-r from-oxford-blue-600 900 to-black group lg:rounded-xl shadow-black">
             <span class="font-normal p-2 pr-1 m-1 rounded rounded-r-none lg:rounded-md lg:rounded-r-none border-opacity-80 opacity-80 {% if protocol == 'https' %} text-gray-900 from-green-200 via-green-400 to-lime-600 bg-gradient-to-b{% else %} bg-oxford-blue-400 {% endif %}  lg:py-4">{{ protocol }}</span>
-            <span class="p-2 lg:py-4 pl-1 m-1 -ml-1 flex-1 overflow-hidden relative whitespace-nowrap"><span class="font-normal text-gray-500">://</span>{{ url }}<span class="text-gray-500 relative -right-2 opacity-0 duration-500 group-hover:right-0 group-hover:opacity-100 hidden sm:inline">/admin/{{cpUrl}}</span></span>
-            <span class="h-full sm:flex hidden flex-col p-2 lg:px-4 justify-center absolute right-0 after:h-full after:w-16 after:block after:-left-14 after:top-0 after:absolute after:bg-gradient-to-l after:from-black after:to-transparent">
+            <span class="relative flex-1 p-2 pl-1 m-1 -ml-1 overflow-hidden lg:py-4 whitespace-nowrap"><span class="font-normal text-gray-500">://</span>{{ url }}<span class="relative hidden text-gray-500 duration-500 opacity-0 -right-2 group-hover:right-0 group-hover:opacity-100 sm:inline">/admin/{{cpUrl}}</span></span>
+            <span class="absolute right-0 flex-col justify-center hidden h-full p-2 sm:flex lg:px-4 after:h-full after:w-16 after:block after:-left-14 after:top-0 after:absolute after:bg-gradient-to-l after:from-black after:to-transparent">
 
               <span class="flex overflow-hidden pl-3.5 items-center text-xs text-white uppercase rounded bg-[#e12d39] px-2 lg:px-4 py-2">Control Panel
                 <svg xmlns="http://www.w3.org/2000/svg" class="duration-300 w-0 h-6 ml-1 mt-0.5 opacity-0 group-hover:opacity-90 group-hover:w-6 group-hover:right-0 relative -right-10 " fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24">
@@ -67,31 +67,30 @@
           </a>
 
           {# CP Button for Mobile #}
-          <div class="text-center p-4 sm:hidden">
+          <div class="p-4 text-center sm:hidden">
             <a href="{{ cpUrl('') }}" class="group no-underline inline-flex overflow-hidden pl-3.5 items-center text-xs text-white uppercase rounded bg-[#e12d39] px-2 lg:px-4 py-2">Control Panel
               <svg xmlns="http://www.w3.org/2000/svg" class="duration-300 w-0 h-6 ml-1 mt-0.5 opacity-0 group-hover:opacity-90 group-hover:w-6 group-hover:right-0 relative -right-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
           </div>
-
         </div>
 
       </div>
 
-      <hr class="h-2 mx-auto mb-6 rounded-full w-[95%] bg-white border-0 bg-opacity-10">
+      <hr class="h-1 mx-auto mb-6 rounded-full w-[95%] bg-gray-800 border-0">
 
       {% set pStyle = "text-slate-300 md:pb-8 lg:text-3xl " %}
       {% set hrStyle = "after:block after:w-12 md:after:w-14 after:h-2 after:mx-auto after:rounded-full after:bg-opacity-80 after:mt-8 md:after:mt-16 after:border-0" %}
 
-      <div class="mb-12 p-4 md:text-center md:px-16 font-body">
-        <p class="{{pStyle}} {{hrStyle}} after:bg-pink-300">You’re viewing the <code>index.twig</code> file located at the root of your <code>/templates</code> directory.<p>
-        <p class="{{pStyle}} {{hrStyle}} after:bg-blue-300">You can run <code>make serve</code> to start Vite, enabling HMR and Live Reload.</p>
-        <p class="{{pStyle}} {{hrStyle}} after:bg-teal-300">Then make some changes to <code>index.twig</code> to verify changes are being pushed to your browser.</p>
+      <div class="p-4 mb-12 md:text-center md:px-16 font-body">
+        <p class="{{pStyle}} {{hrStyle}} after:bg-[#f72c6c]">You’re viewing the <code>index.twig</code> file located at the root of your <code>/templates</code> directory.<p>
+        <p class="{{pStyle}} {{hrStyle}} after:bg-[#bf49af]">You can run <code>make serve</code> to start Vite, enabling HMR and Live Reload.</p>
+        <p class="{{pStyle}} {{hrStyle}} after:bg-[#5a62ab]">Then make some changes to <code>index.twig</code> to verify changes are being pushed to your browser.</p>
         <p class="{{pStyle}}">Build your project for production with <code>make bundle</code>. The default location for bundled assets is <code>/web/dist/</code>.</p>
       </div>
 
-      <hr class="h-2 mx-auto mb-6 rounded-full w-[95%] bg-white border-0 bg-opacity-10">
+      <hr class="h-1 mx-auto mb-6 rounded-full w-[95%] bg-gray-800 border-0">
 
     </main>
 
@@ -105,7 +104,7 @@
       <div class="grid grid-cols-2 gap-10 p-4 mb-3 md:px-8 md:grid-cols-3 lg:grid-cols-12 lg:gap-15 font-body">
 
         <div class="col-span-3">
-          <a href="https://github.com/kerns/craft-on-ddev/" class="flex items-center space-x-2 font-black leading-none text-gray-300 hover:text-white select-none font-headline ">Craft on DDEV <span class="sr-only">- Visit GitHub</span>
+          <a href="https://github.com/kerns/craft-on-ddev/" class="flex items-center space-x-2 font-black leading-none text-gray-300 select-none hover:text-white font-headline ">Craft on DDEV <span class="sr-only">- Visit GitHub</span>
             <svg class="w-6 h-6" height="24" width="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
             </svg>
@@ -115,7 +114,7 @@
         </div>
 
         <nav class="col-span-1 md:col-span-1 lg:col-span-2 lg:col-start-5 lg:col-end-7">
-          <h2 class="{{ headerStyle }} text-red-100">Craft CMS</h2>
+          <h2 class="{{ headerStyle }} text-red-200">Craft CMS</h2>
           <ul class="{{ listStyle }}">
             <li><a href="http://docs.craftcms.com/v3/" class="{{ linkStyle }}">Documenation</a></li>
             <li><a href="https://craftcms.com/docs/3.x/dev/twig-primer.html" class="{{ linkStyle }}">Twig Primer</a></li>
@@ -146,5 +145,5 @@
 
   </div>
 </div>
-<div class="text-center text-oxford-blue-100 text-xs pb-12 opacity-80 hidden md:block md:pt-4 lg:pt-0">Background courtesy <a href="http://svgbackgrounds.com/" class="text-violet-200 hover:text-violet-50">svgbackgrounds.com</a> by <a href="https://twitter.com/MattVisiwig" class="text-violet-200 hover:text-violet-50">@MattVisiwig</a></div>
+<div class="hidden pb-12 text-xs text-center text-oxford-blue-100 opacity-80 md:block md:pt-4 lg:pt-0">Background courtesy <a href="http://svgbackgrounds.com/" class="text-violet-200 hover:text-violet-50">svgbackgrounds.com</a> by <a href="https://twitter.com/MattVisiwig" class="text-violet-200 hover:text-violet-50">@MattVisiwig</a></div>
 {% endblock %}
