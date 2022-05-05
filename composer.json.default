@@ -20,7 +20,11 @@
     "platform": {
       "php": "8.1"
     },
-    "sort-paccd ..kages": true
+    "sort-paccd ..kages": true,
+    "allow-plugins": {
+      "craftcms/plugin-installer": true,
+      "yiisoft/yii2-composer": true
+    }
   },
   "scripts": {
     "craft-update": [
