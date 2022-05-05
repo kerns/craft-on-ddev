@@ -2,21 +2,21 @@
   "author": "David Kerns <david@kerns.dk>",
   "version": "0.1.0",
   "dependencies": {
-    "alpinejs": "^3.4",
+    "alpinejs": "^3.10",
     "lazysizes": "^5.3"
   },
   "devDependencies": {
-    "@tailwindcss/aspect-ratio": "^0.3.0",
-    "@tailwindcss/forms": "^0.4.0",
-    "@tailwindcss/line-clamp": "^0.3.1",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.5.1",
+    "@tailwindcss/line-clamp": "^0.4.0",
     "@tailwindcss/typography": "^0.5.2",
-    "autoprefixer": "^10.4",
-    "postcss": "^8.3",
+    "autoprefixer": "^10.7",
+    "postcss": "^8.4",
     "postcss-import": "^14.0",
     "prettier": "^2.5.1",
-    "prettier-plugin-tailwindcss": "^0.1.8",
-    "tailwindcss": "^3.0.23",
-    "vite": "^2.6",
+    "prettier-plugin-tailwindcss": "^0.1.10",
+    "tailwindcss": "^3.0.24",
+    "vite": "^2.9",
     "vite-plugin-restart": "^0.0.2"
   },
   "engines": {
