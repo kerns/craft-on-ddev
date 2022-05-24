@@ -1,10 +1,10 @@
 {
   "minimum-stability": "dev",
   "require": {
-    "craftcms/cms": "^4.0",
+    "craftcms/cms": "^4.0.3",
     "craftcms/postmark": "^3.0",
-    "nystudio107/craft-vite": "^4.0.0-beta.4",
-    "nystudio107/craft-templatecomments": "^4.0.0-beta.2",
+    "nystudio107/craft-vite": "^4.0.1",
+    "nystudio107/craft-templatecomments": "^4.0.0",
     "vlucas/phpdotenv": "^3.6"
   },
   "require-dev": {
