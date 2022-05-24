@@ -1,7 +1,9 @@
 .PHONY: build dev serve bundle composer craft npm pull up install
 
 build: up
-	ddev exec npm run build
+	@echo "Preparing to build..."
+	@ddev exec npm run build
+
 dev: build
 	ddev exec npm run serve
 serve:
@@ -21,23 +23,36 @@ pull: up
 	ddev exec bash scripts/pull_assets.sh
 	ddev exec bash scripts/pull_db.sh
 install: up build
-	ddev exec php craft setup/app-id \
+	@echo ""
+	@echo "Preparing to install Craft..."
+	@ddev exec php craft setup/app-id \
 		$(filter-out $@,$(MAKECMDGOALS))
-	ddev exec php craft setup/security-key \
+	@ddev exec php craft setup/security-key \
 		$(filter-out $@,$(MAKECMDGOALS))
-	ddev exec php craft install \
+	@echo ""
+	@ddev exec php craft install \
+
 		$(filter-out $@,$(MAKECMDGOALS))
-	ddev exec php craft plugin/install vite
-	ddev exec php craft plugin/install templatecomments
-	ddev exec php craft plugin/install postmark
+	@echo ""
+	@echo "Installing plugins..."
+	@ddev exec php craft plugin/install vite
+	@ddev exec php craft plugin/install templatecomments
+	@ddev exec php craft plugin/install postmark
+
 # 👆You can expand this list of plugins however you like.
 # Just remember to update requirements in composer.json.default
+
+	@echo "*** DONE ***"
+	@ddev describe
+	@ddev launch
+
 up:
-	if [ ! "$$(ddev describe | grep running)" ]; then \
+	@echo "Preflight check..."
+	@if [ ! "$$(ddev describe | grep running)" ]; then \
         ddev auth ssh; \
         ddev start; \
         ddev composer install; \
-        ddev exec npm install; \
+        ddev exec npm install --loglevel=error --no-fund; \
     fi
 %:
 	@:
