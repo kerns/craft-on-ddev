@@ -3,7 +3,6 @@
 build: up
 	@echo "Preparing to build..."
 	@ddev exec npm run build
-
 dev: build
 	ddev exec npm run serve
 serve:
@@ -25,13 +24,21 @@ pull: up
 install: up build
 	@echo ""
 	@echo "Preparing to install Craft..."
+
+# 👇 set_primary_site_url executes a custom command (shell script) within the web container which
+# sets the default PRIMARY_SITE_URL of your Craft .env file to match your ddev site name ${DDEV_SITENAME}.
+# View the script in .ddev/commands/web/set_primary_site_url.sh
+#
+# Custom commands in ddev are extremely powerful and easy to implement.
+# https://ddev.readthedocs.io/en/stable/users/extend/custom-commands/
+	@ddev set_primary_site_url
+
 	@ddev exec php craft setup/app-id \
 		$(filter-out $@,$(MAKECMDGOALS))
 	@ddev exec php craft setup/security-key \
 		$(filter-out $@,$(MAKECMDGOALS))
 	@echo ""
 	@ddev exec php craft install \
-
 		$(filter-out $@,$(MAKECMDGOALS))
 	@echo ""
 	@echo "Installing plugins..."
