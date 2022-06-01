@@ -42,12 +42,12 @@ install: up build
 		$(filter-out $@,$(MAKECMDGOALS))
 	@echo ""
 	@echo "Installing plugins..."
+# 👇 You can expand this list of plugins however you like.
+# Just remember to update requirements in composer.json.default
+
 	@ddev exec php craft plugin/install vite
 	@ddev exec php craft plugin/install templatecomments
 	@ddev exec php craft plugin/install postmark
-
-# 👆You can expand this list of plugins however you like.
-# Just remember to update requirements in composer.json.default
 
 	@echo "*** DONE ***"
 	@ddev describe
@@ -55,7 +55,9 @@ install: up build
 
 up:
 	@echo "Preflight check..."
-	@if [ ! "$$(ddev describe | grep running)" ]; then \
+# 👇 We'll grep for some strings ("web" and "OK") to understand if ddev is already running
+	@if [ ! "$$(ddev describe | grep -e web -e OK )" ]; then \
+				echo "Starting ddev..."; \
         ddev auth ssh; \
         ddev start; \
         ddev composer install; \
