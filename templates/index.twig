@@ -15,7 +15,7 @@
 <div class="flex justify-center w-full min-h-screen p-2 md:p-8 xl:p-16 sm:p-4">
   <div class="flex flex-col max-w-5xl p-4 bg-cover shadow-2xl md:p-8 bg-oxford-blue-900">
     <main class="relative pt-16 prose prose-2xl prose-invert">
-      <h1 class="mb-6 text-5xl tracking-tighter text-center font-headline lg:text-7xl"><span class="font-normal"></span> It worked.</h1>
+      <h1 class="mb-6 text-5xl tracking-tighter text-center font-headline lg:text-7xl"><span class="font-normal"></span> It worked</h1>
       <p class="text-sm text-center text-gray-400 font-body md:text-xl"><strong>{{ siteName }}</strong> is up and running at...</p>
 
       <!-- URL address bar and success confetti  -->
@@ -58,7 +58,7 @@
             <span class="absolute right-0 flex-col justify-center hidden h-full p-2 sm:flex lg:px-4 after:h-full after:w-16 after:block after:-left-14 after:top-0 after:absolute after:bg-gradient-to-l after:from-black after:to-transparent">
 
               <span class="flex overflow-hidden pl-3.5 items-center text-xs text-white uppercase rounded bg-[#e12d39] px-2 lg:px-4 py-2">Control Panel
-                <svg xmlns="http://www.w3.org/2000/svg" class="duration-300 w-0 h-6 ml-1 mt-0.5 opacity-0 group-hover:opacity-90 group-hover:w-6 group-hover:right-0 relative -right-10 " fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24">
+                <svg xmlns="http://www.w3.org/2000/svg" class="duration-300 w-0 h-6 ml-1 mt-0.5 opacity-0 group-hover:opacity-70 group-hover:w-6 group-hover:-right-1 relative -right-10 " fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </span>
@@ -69,7 +69,7 @@
           {# CP Button for Mobile #}
           <div class="p-4 text-center sm:hidden">
             <a href="{{ cpUrl('') }}" class="group no-underline inline-flex overflow-hidden pl-3.5 items-center text-xs text-white uppercase rounded bg-[#e12d39] px-2 lg:px-4 py-2">Control Panel
-              <svg xmlns="http://www.w3.org/2000/svg" class="duration-300 w-0 h-6 ml-1 mt-0.5 opacity-0 group-hover:opacity-90 group-hover:w-6 group-hover:right-0 relative -right-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24">
+              <svg xmlns="http://www.w3.org/2000/svg" class="duration-300 w-0 h-6 ml-1 mt-0.5 opacity-0 group-hover:opacity-70 group-hover:w-6 group-hover:right-0 relative -right-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
@@ -85,9 +85,9 @@
 
       <div class="p-4 mb-12 md:text-center md:px-16 font-body">
         <p class="{{pStyle}} {{hrStyle}} after:bg-[#f72c6c]">You’re viewing the <code>index.twig</code> file located at the root of your <code>/templates</code> directory.<p>
-        <p class="{{pStyle}} {{hrStyle}} after:bg-[#bf49af]">You can run <code>make serve</code> to start Vite, enabling HMR and Live Reload.</p>
+        <p class="{{pStyle}} {{hrStyle}} after:bg-[#bf49af]">Run <code>make dev</code> to start Vite, enabling HMR and Live Reload.</p>
         <p class="{{pStyle}} {{hrStyle}} after:bg-[#5a62ab]">Then make some changes to <code>index.twig</code> to verify changes are being pushed to your browser.</p>
-        <p class="{{pStyle}}">Build your project for production with <code>make bundle</code>. The default location for bundled assets is <code>/web/dist/</code>.</p>
+        <p class="{{pStyle}}">Build your project for production with <code>make build</code>. The default location for bundled assets is <code>/web/dist/</code>.</p>
       </div>
 
       <hr class="h-1 mx-auto mb-6 rounded-full w-[95%] bg-gray-800 border-0">

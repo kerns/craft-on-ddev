@@ -8,6 +8,8 @@ return [
 	'devServerPublic' => Craft::getAlias('@web') . ':3000',
 	'errorEntry' => 'src/js/app.js',
 	'manifestPath' => Craft::getAlias('@webroot') . '/dist/manifest.json',
-	'serverPublic' => Craft::getAlias('@web')  . '/dist/',
+	'serverPublic' => '/dist/',
+//	👇 Use this if you want an absolute path
+//	'serverPublic' => Craft::getAlias('@web')  . '/dist/',
 	'useDevServer' => (bool) App::env('VITE_USE_DEV_SERVER'),
 ];

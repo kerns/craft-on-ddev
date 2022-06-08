@@ -1,35 +1,56 @@
-.PHONY: build dev serve bundle composer craft npm pull up install
+# define standard colors
+ifneq (,$(findstring xterm,${TERM}))
+	BLACK        := $(shell tput -Txterm setaf 0)
+	RED          := $(shell tput -Txterm setaf 1)
+	GREEN        := $(shell tput -Txterm setaf 2)
+	YELLOW       := $(shell tput -Txterm setaf 3)
+	LIGHTPURPLE  := $(shell tput -Txterm setaf 4)
+	PURPLE       := $(shell tput -Txterm setaf 5)
+	BLUE         := $(shell tput -Txterm setaf 6)
+	WHITE        := $(shell tput -Txterm setaf 7)
+	RESET := $(shell tput -Txterm sgr0)
+else
+	BLACK        := ""
+	RED          := ""
+	GREEN        := ""
+	YELLOW       := ""
+	LIGHTPURPLE  := ""
+	PURPLE       := ""
+	BLUE         := ""
+	WHITE        := ""
+	RESET        := ""
+endif
+
+# 👆https://gist.github.com/rsperl/d2dfe88a520968fbc1f49db0a29345b9
+
+.PHONY: build dev composer craft npm pull up install
 
 build: up
 	@echo "Preparing to build..."
 	@ddev exec npm run build
-dev: build
-	ddev exec npm run serve
-serve:
-	ddev exec npm run serve
-bundle:
-	ddev exec npm run build
+dev: up
+	@ddev exec npm run serve
 composer: up
-	ddev composer \
+	@ddev composer \
 		$(filter-out $@,$(MAKECMDGOALS))
 craft: up
-	ddev exec php craft \
+	@ddev exec php craft \
 		$(filter-out $@,$(MAKECMDGOALS))
 npm: up
-	ddev exec npm \
+	@ddev exec npm \
 		$(filter-out $@,$(MAKECMDGOALS))
 pull: up
-	ddev exec bash scripts/pull_assets.sh
-	ddev exec bash scripts/pull_db.sh
+	@ddev exec bash scripts/pull_assets.sh
+	@ddev exec bash scripts/pull_db.sh
 install: up build
 	@echo ""
 	@echo "Preparing to install Craft..."
 
 # 👇 set_primary_site_url executes a custom command (shell script) within the web container which
-# sets the default PRIMARY_SITE_URL of your Craft .env file to match your ddev site name ${DDEV_SITENAME}.
+# sets the default PRIMARY_SITE_URL of your Craft .env file to match your DDEV site name ${DDEV_SITENAME}.
 # View the script in .ddev/commands/web/set_primary_site_url.sh
 #
-# Custom commands in ddev are extremely powerful and easy to implement.
+# Custom commands in DDEV are extremely powerful and easy to implement.
 # https://ddev.readthedocs.io/en/stable/users/extend/custom-commands/
 	@ddev set_primary_site_url
 
@@ -54,14 +75,17 @@ install: up build
 	@ddev launch
 
 up:
-	@echo "Preflight check..."
-# 👇 We'll grep for some strings ("web" and "OK") to understand if ddev is already running
+	@echo "${PURPLE}Preflight check...${RESET}"
+
+# 👇 We'll grep for some strings ("web" and "OK") to understand if DDEV is already running
 	@if [ ! "$$(ddev describe | grep -e web -e OK )" ]; then \
-				echo "Starting ddev..."; \
+				echo "Your DDEV project is ${GREEN}starting...${RESET}"; \
         ddev auth ssh; \
         ddev start; \
         ddev composer install; \
         ddev exec npm install --loglevel=error --no-fund; \
+    else \
+        echo "${YELLOW}Your DDEV project is ${GREEN}running...${RESET}"; \
     fi
 %:
 	@:

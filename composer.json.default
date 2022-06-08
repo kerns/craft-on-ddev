@@ -1,7 +1,7 @@
 {
   "minimum-stability": "dev",
   "require": {
-    "craftcms/cms": "^4.0.3",
+    "craftcms/cms": "^4.0.4",
     "craftcms/postmark": "^3.0",
     "nystudio107/craft-vite": "^4.0.1",
     "nystudio107/craft-templatecomments": "^4.0.0",
