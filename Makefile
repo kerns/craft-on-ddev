@@ -85,7 +85,7 @@ up:
         ddev composer install; \
         ddev exec npm install --loglevel=error --no-fund; \
     else \
-        echo "${YELLOW}Your DDEV project is ${GREEN}running...${RESET}"; \
+        echo "${YELLOW}Your DDEV project is already running.${RESET}"; \
     fi
 %:
 	@:

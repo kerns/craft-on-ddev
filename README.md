@@ -56,9 +56,9 @@ _💡 If for some reason the suggested default isn't acceptable, answer the prom
 
 ## Usage
 
-### Start Vite and Get Coding
+### Development
 
-After installation, start Vite for HMR and live reloading with:
+Start Vite for HMR and live reloading with:
 
 ```shell
 make dev
@@ -69,15 +69,20 @@ Edit the default `index.twig` file in `templates/` to confirm that changes are b
 _💡 Run `ddev launch` to open the domain of your Craft project in your default browser. Like all project specific DDEV commands, it can be run from any location below your project's root directory._
 
 
-### Bundling for Production
+### Building for Production
 
-To build assets for use in production, stop your Vite server and run `make bundle`. You should run `make build` after pulling down changes that impact your project's dependencies.
+Generate a production ready build of your site with:
 
-### Useful Development Commands
 
--   `make serve` – Starts your Vite server enabling HMR and live reload
--   `make build` – Bundles and exports assets for use in production (default location is `/web/dist/`)
--   `make up` - Starts your DDEV project, ensuring that SSH keys have been added, and npm & Composer have been installed
+```shell
+make build
+```
+
+Bundles and exports assets for use in production (default location is `/web/dist/`).
+
+### Other Makefile Commands
+
+-   `make up` - Confirms your DDEV project is running. Rebuilds the containers and pushes over your SSH credentials if needed.
 -   `make install` - Runs a complete one-time process to set the project up and install Craft
 -   `make composer <command>` - Run Composer commands inside the container, e.g. `make composer install`
 -   `make craft <command>` - Run Craft commands inside the container, e.g. `make craft project-config/touch`
