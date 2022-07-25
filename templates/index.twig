@@ -85,13 +85,15 @@
       <hr class="h-1 mx-auto mb-6 rounded-full w-[95%] bg-gray-800 border-0">
 
       {% set pStyle = "text-slate-300 md:pb-8 lg:text-3xl " %}
+      {% set muteStyle ="mt-4 text-gray-500 text-[.75em] block" %}
       {% set hrStyle = "after:block after:w-12 md:after:w-14 after:h-2 after:mx-auto after:rounded-full after:bg-opacity-80 after:mt-8 md:after:mt-16 after:border-0" %}
+    
 
       <div class="p-4 mb-12 md:text-center md:px-16 font-body">
-        <p class="{{pStyle}} {{hrStyle}} after:bg-[#f72c6c]">You’re viewing the <code>index.twig</code> file located at the root of your <code>/templates</code> directory.<p>
-        <p class="{{pStyle}} {{hrStyle}} after:bg-[#bf49af]">Run <code>make dev</code> to start Vite, enabling HMR and Live Reload.</p>
-        <p class="{{pStyle}} {{hrStyle}} after:bg-[#5a62ab]">Reload this page and then make some changes to <code>templates/index.twig</code> to verify changes are being pushed to your browser.</p>
-        <p class="{{pStyle}}">Build your project for production with <code>make build</code>. The default location for bundled assets is <code>/web/dist/</code>.</p>
+        <p class="{{pStyle}} {{hrStyle}} after:bg-[#f72c6c]">You’re viewing the template located at <code>templates/index.twig</code></p>
+        <p class="{{pStyle}} {{hrStyle}} after:bg-[#bf49af]">Run <code>make dev</code> to start Vite, enabling HMR and Live Reload. <span class="{{muteStyle}}">Reload this page <span class="font-bold">once</span> after running this command.</span></p>
+        <p class="{{pStyle}} {{hrStyle}} after:bg-[#5a62ab]">Then edit <code>templates/index.twig</code> to verify changes are being pushed to your browser.</p>
+        <p class="{{pStyle}}">Build your project for production with <code>make build</code>.<span class="{{muteStyle}}">The default location for bundled assets is <code>/web/dist/</code></span></p>
       </div>
 
       <hr class="h-1 mx-auto mb-6 rounded-full w-[95%] bg-gray-800 border-0">
