@@ -53,13 +53,13 @@ To install Craft, Vite and a few supporting plugins run the following command an
 make install
 ```
 
-This gives a sane, Dockerized development environment running the latest version of Craft CMS. It also installs a selection of plugins for Craft as defined in `composer.json.default`. You can edit/expand this list however you like, just remember to mirror those choices in your `Makefile` prior to running `make install`.
+This builds a sane, Dockerized development environment running the latest version of Craft CMS. It also installs a selection of plugins for Craft as defined in `composer.json.default`. You can edit/expand this list however you like, just remember to mirror those choices in your `Makefile` prior to running `make install`.
 
 **Pay special attention to the Craft installation prompts**. After setting the admin's account credentials, you'll be prompted for your desired site name and url.
 
 The **Site name** can be anything, can include spaces and capital letters, and doesn't need to correspond to your project's root folder name or ddev domain.
 
-The **Site url** is pre-filled with a url based on the name of your root folder or the name you optionally defined by running `ddev config` in Step 2. If for some reason the suggested default isn't acceptable, answer the prompt for a url with the full url (😎 e.g. `https://my-website.ddev.site`)
+The **Site url** If for some reason the suggested default isn't acceptable, answer the prompt for a url with the full url (😎 e.g. `https://my-website.ddev.site`)
 
 _💡 If you're unclear about the url of your project open another terminal window in the same directory and run `ddev describe`.
 
