@@ -24,11 +24,16 @@ With that behind you, open a terminal prompt and run:
 composer create-project kerns/craft-on-ddev <YOUR PATH HERE> --no-install && cd <YOUR PATH HERE>
 ```
 
-Make sure that `<YOUR PATH HERE>` is the location of a **new** or **existing and empty** folder. Though not a requirement, it would be a good idea to make the name of this folder the same as your desired DDEV subdomain.
+Make sure that `<YOUR PATH HERE>` is the location of a **new** or **existing and empty** directory.
 
-### II. Configure DDEV
+Though not a requirement, it would be a good idea (and allow you to skip Step 2 and go straight to Step 3) if you named this directory according to your desired DDEV subdomain. For example, a directory named `my-website` will be automatically configured to use `https://my-website.ddev.site` in Step 3.
 
-Run the following command from the root of the directory you just created:
+
+### II. Configure DDEV (Optional)
+
+Youc can skip this step if you followed best pratice recommendation from the previous step and named your directory to match your desired DDEV subdomain.
+
+However, if you need your local ddev domain to be different from the name of this project's root directory, run the following command from inside said directory:
 
 ```shell
 ddev config
@@ -50,9 +55,13 @@ make install
 
 This gives a sane, Dockerized development environment running the latest version of Craft CMS. It also installs a selection of plugins for Craft as defined in `composer.json.default`. You can edit/expand this list however you like, just remember to mirror those choices in your `Makefile` prior to running `make install`.
 
-**Pay special attention to the Craft installation prompts**. After setting the admin's account credentials, you'll be prompted for your desired site name and url. Craft should be suggesting a sane default here based on the site name you defined when you ran `ddev config`.
+**Pay special attention to the Craft installation prompts**. After setting the admin's account credentials, you'll be prompted for your desired site name and url.
 
-_💡 If for some reason the suggested default isn't acceptable, answer the prompt for a url with the full url (😎 e.g. `https://my-website.ddev.site`). If you're unclear or forgot to note the url of your DDEV project open another terminal window in the same directory and run `ddev describe`.
+The **Site name** can be anything, can include spaces and capital letters, and doesn't need to correspond to your project's root folder name or ddev domain.
+
+The **Site url** is pre-filled with a url based on the name of your root folder or the name you optionally defined by running `ddev config` in Step 2. If for some reason the suggested default isn't acceptable, answer the prompt for a url with the full url (😎 e.g. `https://my-website.ddev.site`)
+
+_💡 If you're unclear about the url of your project open another terminal window in the same directory and run `ddev describe`.
 
 ## Usage
 
