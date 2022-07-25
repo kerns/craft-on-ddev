@@ -26,22 +26,22 @@ composer create-project kerns/craft-on-ddev <YOUR PATH HERE> --no-install && cd 
 
 Make sure that `<YOUR PATH HERE>` is the location of a **new** or **existing and empty** directory.
 
-Though not a requirement, it would be a good idea (and allow you to skip Step 2 and go straight to Step 3) if you named this directory according to your desired DDEV subdomain. For example, a directory named `my-website` will be automatically configured to use `https://my-website.ddev.site` in Step 3.
+Though not a requirement, it would be a good idea (and allow you to skip Step 2) if you named this directory after your desired DDEV subdomain. For example, a directory named `my-website` would be pre-configured to use `https://my-website.ddev.site` in Step 3.
 
 
 ### II. Configure DDEV (Optional)
 
-Youc can skip this step if you followed best pratice recommendation from the previous step and named your directory to match your desired DDEV subdomain.
+You can skip this step if the name of your root directory matches your desired DDEV subdomain.
 
-However, if you need your local ddev domain to be different from the name of this project's root directory, run the following command from inside said directory:
+If you need your local DDEV domain to be different from the name of this project's root directory, run the following command from inside said directory:
 
 ```shell
 ddev config
 ```
 
-Follow the prompts. All of the defaults should be acceptable.
+Follow the prompts.
 
--   **Project name:** defaults to the name of your project's root folder, used to determine the subdomain of your site. e.g. `my-test-site` sets your project URL to `https://my-test-site.ddev.site`
+-   **Project name:** `my-test-site` would establish a project URL of `https://my-test-site.ddev.site`
 -   **Docroot location:** defaults to `web`, should be kept as-is
 -   **Project Type:** defaults to `php`, should be kept as-is
 
