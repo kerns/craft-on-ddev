@@ -24,10 +24,10 @@
         {# Example of setting/requesting/testing and filtering vars in Twig #}
         {% set url = craft.app.request.absoluteUrl %}
         {% set protocol = 'https://' in url ? 'https' : 'http' %}
-        {% set url = craft.app.request.absoluteUrl|trim('https://') %}
 
         {# Example of simple if/else conditional in Twig #}
         {% if protocol == 'https' %}
+          {% set url = craft.app.request.absoluteUrl|replace('/^https:?\\/\\//', '') %}
           {% set animationArray = [
             { src: 'https://assets10.lottiefiles.com/packages/lf20_pkanqwys.json', size:'h-72', position:'left-0 -top-64' },
             { src: 'https://assets9.lottiefiles.com/packages/lf20_nxsyeqbd.json', size:'h-64', position:'left-0 -top-64' },
@@ -35,10 +35,14 @@
             { src: 'https://assets1.lottiefiles.com/packages/lf20_rovf9gzu.json', size:'h-96', position:'left-0 -top-80' }
           ] %}
         {% else %}
+          {% set url = craft.app.request.absoluteUrl|replace('/^http:?\\/\\//', '') %}
           {% set animationArray = [
             { src: 'https://assets8.lottiefiles.com/packages/lf20_3ki8odep.json', size:'h-96', position:'left-0 -top-80' },
           ] %}
         {% endif %}
+        
+        {# Remove the trailing / #}
+        {% set url = url|trim('/') %}
 
         {# Example of selecting a random item from an array in Twig #}
         {% set animation = shuffle(animationArray) | first %}
