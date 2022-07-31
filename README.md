@@ -57,7 +57,7 @@ This builds a sane, Dockerized development environment running the latest versio
 
 **Pay special attention to the Craft installation prompts**. After setting the admin's account credentials, you'll be prompted for your desired site name and url.
 
-The **Site name** can be anything, can include spaces and capital letters, and doesn't need to correspond to your project's root folder name or ddev domain.
+The **Site name** can be anything, can include spaces and capital letters, and doesn't need to correspond to your project's root folder name or DDEV domain.
 
 The **Site url** If for some reason the suggested default isn't acceptable, answer the prompt for a url with the full url (😎 e.g. `https://my-website.ddev.site`)
 
